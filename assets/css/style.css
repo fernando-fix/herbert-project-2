@@ -1,0 +1,114 @@
+:root {
+    /* sizes */
+    --height-header: 40px;
+    --height-footer: 20px;
+    --width-min-aside: 50px;
+    --width-max-aside: 200px;
+    /* colors */
+    --color-header: #00A2FF;
+    --color-aside: #ECECEC;
+    --color-main: #F1F1F1;
+    --color-footer: #679dee;
+    /* transitions */
+    --animation-going: all 0.8s ease;
+    --animation-backing: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+        "header header"
+        "aside main"
+        "footer footer";
+}
+
+header {
+    grid-area: header;
+    height: var(--height-header);
+    background-color: var(--color-header);
+}
+
+aside {
+    grid-area: aside;
+    background-color: var(--color-aside);
+    width: var(--width-min-aside);
+    transition: var(--animation-backing);
+    overflow: hidden;
+}
+
+aside:hover {
+    width: var(--width-max-aside);
+    transition: var(--animation-going);
+}
+
+aside:hover~main {
+    transition: var(--animation-going);
+}
+
+main {
+    grid-area: main;
+    background-color: var(--color-main);
+    height: calc(100vh - var(--height-header) - var(--height-footer));
+    transition: var(--animation-backing);
+}
+
+footer {
+    grid-area: footer;
+    background-color: var(--color-footer);
+}
+
+.inside {
+    width: var(--width-max-aside);
+}
+
+.custom-btn {
+    height: var(--width-min-aside);
+    width: var(--width-max-aside);
+    display: flex;
+    transition: var(--animation-backing);
+}
+
+.custom-btn:hover {
+    background-color: var(--color-header);
+    transition: var(--animation-going);
+    cursor: pointer;
+}
+
+.custom-btn:hover > .btn-icon {
+    color: var(--color-aside);
+    transition: var(--animation-going);
+}
+
+.custom-btn:hover > .btn-text {
+    color: var(--color-aside);
+    transition: var(--animation-going);
+}
+
+.btn-icon {
+    height: var(--width-min-aside);
+    width: var(--width-min-aside);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    color: var(--color-header);
+    transition: var(--animation-backing);
+}
+
+.btn-text {
+    height: var(--width-min-aside);
+    width: calc(var(--width-max-aside) - var(--width-min-aside));
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(--color-header);
+    transition: var(--animation-backing);
+}
