@@ -3,15 +3,16 @@
     --height-header: 40px;
     --height-footer: 20px;
     --width-min-aside: 50px;
-    --width-max-aside: 200px;
+    --width-max-aside: 220px;
     /* colors */
-    --color-header: #00A2FF;
+    --color-header: #2c89f3;
     --color-aside: #ECECEC;
     --color-main: #F1F1F1;
     --color-footer: #679dee;
     /* transitions */
     --animation-going: all 0.8s ease;
     --animation-backing: all 0.3s ease;
+    --animation-button: all 0.4s linear;
 }
 
 * {
@@ -43,15 +44,6 @@ aside {
     overflow: hidden;
 }
 
-aside:hover {
-    width: var(--width-max-aside);
-    transition: var(--animation-going);
-}
-
-aside:hover~main {
-    transition: var(--animation-going);
-}
-
 main {
     grid-area: main;
     background-color: var(--color-main);
@@ -64,6 +56,15 @@ footer {
     background-color: var(--color-footer);
 }
 
+aside:hover {
+    width: var(--width-max-aside);
+    transition: var(--animation-going);
+}
+
+aside:hover~main {
+    transition: var(--animation-going);
+}
+
 .inside {
     width: var(--width-max-aside);
 }
@@ -72,23 +73,24 @@ footer {
     height: var(--width-min-aside);
     width: var(--width-max-aside);
     display: flex;
-    transition: var(--animation-backing);
+    transition: var(--animation-button);
 }
 
 .custom-btn:hover {
     background-color: var(--color-header);
-    transition: var(--animation-going);
+    transition: var(--animation-button);
     cursor: pointer;
+    border: 1px solid var(--color-aside);
 }
 
-.custom-btn:hover > .btn-icon {
+.custom-btn:hover>.btn-icon {
     color: var(--color-aside);
-    transition: var(--animation-going);
+    transition: var(--animation-button);
 }
 
-.custom-btn:hover > .btn-text {
+.custom-btn:hover>.btn-text {
     color: var(--color-aside);
-    transition: var(--animation-going);
+    transition: var(--animation-button);
 }
 
 .btn-icon {
@@ -99,7 +101,7 @@ footer {
     align-items: center;
     font-size: 1.8rem;
     color: var(--color-header);
-    transition: var(--animation-backing);
+    transition: var(--animation-button);
 }
 
 .btn-text {
@@ -110,5 +112,5 @@ footer {
     font-size: 0.8rem;
     font-weight: bold;
     color: var(--color-header);
-    transition: var(--animation-backing);
+    transition: var(--animation-button);
 }
