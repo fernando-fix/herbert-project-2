@@ -1,0 +1,16 @@
+{
+    "name": "fernando/apagar",
+    "description": "nada vou apagar depois",
+    "autoload": {
+        "psr-4": {
+            "src\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Fernando Rodrigues",
+            "email": "fernando_tecti@hotmail.com"
+        }
+    ],
+    "require": {}
+}
