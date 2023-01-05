@@ -26,8 +26,8 @@ body {
     grid-template-columns: auto 1fr;
     grid-template-areas:
         "header header"
-        "aside main"
-        "footer footer";
+        "aside main";
+    background-color: var(--color-main);
 }
 
 header {
@@ -42,12 +42,14 @@ aside {
     width: var(--width-min-aside);
     transition: var(--animation-backing);
     overflow: hidden;
+    height: 100vh;
 }
 
 main {
     grid-area: main;
     background-color: var(--color-main);
-    height: calc(100vh - var(--height-header) - var(--height-footer));
+    /* height: calc(100vh - var(--height-header) - var(--height-footer)); */
+    height: 100%;
     transition: var(--animation-backing);
 }
 
@@ -74,6 +76,7 @@ aside:hover~main {
     width: var(--width-max-aside);
     display: flex;
     transition: var(--animation-button);
+    border: 1px solid var(--color-aside);
 }
 
 .custom-btn:hover {

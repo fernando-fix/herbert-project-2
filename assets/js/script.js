@@ -1,3 +1,3 @@
-function pageLoad(consulta) {
-    console.log(consulta);
+function pageLoad(pagina) {
+    open(pagina, "_self");
 }
