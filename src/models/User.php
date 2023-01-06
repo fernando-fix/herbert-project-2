@@ -1,14 +1,18 @@
 <?php
 namespace src\models;
 
-class User {
+class User{
     public $id;
     public $name;
     public $email;
+    public $password;
     public $token;
+    public $avatar = 'default.jpg';
 }
 
 interface UserDao {
-    public function showInfo();
-    public function addUser(User $u); //add usuario
+    public function findByToken($token);
+    public function findByEmail($email);
+    public function updateToken($email, $token);
+    public function addUser(User $user);
 }

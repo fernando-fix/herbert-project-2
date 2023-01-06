@@ -1,25 +1,3 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Controle de ativos</title>
-    <!-- css import -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css"><!-- datatable -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <!-- css import end -->
-    <!-- css import datatable file export -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.2/css/buttons.dataTables.min.css">
-    <!-- css import datatable file export end -->
-
-
-    <!-- mais informações do datatable https://datatables.net/examples/styling/bootstrap5.html -->
-</head>
-
 <body>
     <header>...</header>
     <aside>
@@ -71,11 +49,13 @@
                 <form action="cad_produtos_action.php" method="post">
                     <div class="mb-3">
                         <label for="id_produto" class="form-label">Nº do ativo</label>
-                        <input type="number" class="form-control" id="id_produto" name="id_produto" placeholder="Ex: 3254">
+                        <input type="number" class="form-control" id="id_produto" name="id_produto"
+                            placeholder="Ex: 3254">
                     </div>
                     <div class="mb-3">
                         <label for="nome_produto" class="form-label">Nome do produto</label>
-                        <input type="text" class="form-control" id="nome_produto" name="nome_produto" placeholder="Ex: Computador Dell">
+                        <input type="text" class="form-control" id="nome_produto" name="nome_produto"
+                            placeholder="Ex: Computador Dell">
                     </div>
 
                     <div class="mb-3">
@@ -85,7 +65,8 @@
                     <div class="mb-3">
                         <label for="nome_setor" class="form-label">Setor</label>
                         <input type="text" class="form-control" id="" name="" placeholder="" value="TI" disabled>
-                        <input type="hidden" class="form-control" id="nome_setor" name="nome_setor" placeholder="" value="1">
+                        <input type="hidden" class="form-control" id="nome_setor" name="nome_setor" placeholder=""
+                            value="1">
                     </div>
                     <button type="submit" class="btn btn-outline-primary">Cadastrar produto</button>
                 </form>
@@ -93,22 +74,6 @@
         </div>
     </main>
     <!-- <footer>...</footer> -->
-    <!-- js import datatables -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.js">//jquery for datatable</script>
-    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js">//datatable js</script>
-    <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js">//datatable bootstrap js</script>
-    <!-- js import datatables end -->
-    <!-- js import datatables -->
-    <script src="https://cdn.datatables.net/buttons/2.3.2/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.print.min.js"></script>
-    <!-- js import datatables dataexport -->
-
-    <script src="assets/js/script.js">//my js</script>
     <script>
         $(document).ready(function () {
             $('#example').DataTable({
