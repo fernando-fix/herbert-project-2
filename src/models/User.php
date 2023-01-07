@@ -3,7 +3,7 @@ namespace src\models;
 
 class User{
     public $id;
-    public $name;
+    public $name = "Fernando";
     public $email;
     public $password;
     public $token;

@@ -40,7 +40,7 @@ $config = new Auth;
                 <td>John Wich</td>
                 <td>25/01/2022</td>
                 <td>Mustafá Soares</td>
-                <td>
+                <td class="tableAction">
                     <a href="#"><i class="bi bi-pencil"></i></a>
                     <a href="#"><i class="bi bi-arrows-move"></i></a>
                     <a href="#"><i class="bi bi-trash-fill"></i></a>
@@ -55,7 +55,7 @@ $config = new Auth;
                 <td>Tobias Arantes</td>
                 <td>03/02/2022</td>
                 <td>Mustafá Soares</td>
-                <td>
+                <td class="tableAction">
                     <a href="#"><i class="bi bi-pencil"></i></a>
                     <a href="#"><i class="bi bi-arrows-move"></i></a>
                     <a href="#"><i class="bi bi-trash-fill"></i></a>
@@ -70,7 +70,7 @@ $config = new Auth;
                 <td>Tobias Arantes</td>
                 <td>03/02/2022</td>
                 <td>Mustafá Soares</td>
-                <td>
+                <td class="tableAction">
                     <a href="#"><i class="bi bi-pencil"></i></a>
                     <a href="#"><i class="bi bi-arrows-move"></i></a>
                     <a href="#"><i class="bi bi-trash-fill"></i></a>
@@ -85,7 +85,7 @@ $config = new Auth;
                 <td>Tobias Arantes</td>
                 <td>03/02/2022</td>
                 <td>Mustafá Soares</td>
-                <td>
+                <td class="tableAction">
                     <a href="#"><i class="bi bi-pencil"></i></a>
                     <a href="#"><i class="bi bi-arrows-move"></i></a>
                     <a href="#"><i class="bi bi-trash-fill"></i></a>
@@ -100,7 +100,7 @@ $config = new Auth;
                 <td>Tobias Arantes</td>
                 <td>03/02/2022</td>
                 <td>Mustafá Soares</td>
-                <td>
+                <td class="tableAction">
                     <a href="#"><i class="bi bi-pencil"></i></a>
                     <a href="#"><i class="bi bi-arrows-move"></i></a>
                     <a href="#"><i class="bi bi-trash-fill"></i></a>
@@ -115,7 +115,7 @@ $config = new Auth;
                 <td>Tobias Arantes</td>
                 <td>03/02/2022</td>
                 <td>Mustafá Soares</td>
-                <td>
+                <td class="tableAction">
                     <a href="#"><i class="bi bi-pencil"></i></a>
                     <a href="#"><i class="bi bi-arrows-move"></i></a>
                     <a href="#"><i class="bi bi-trash-fill"></i></a>
@@ -130,7 +130,7 @@ $config = new Auth;
                 <td>Tobias Arantes</td>
                 <td>03/02/2022</td>
                 <td>Mustafá Soares</td>
-                <td>
+                <td class="tableAction">
                     <a href="#"><i class="bi bi-pencil"></i></a>
                     <a href="#"><i class="bi bi-arrows-move"></i></a>
                     <a href="#"><i class="bi bi-trash-fill"></i></a>
@@ -145,7 +145,7 @@ $config = new Auth;
                 <td>Tobias Arantes</td>
                 <td>03/02/2022</td>
                 <td>Mustafá Soares</td>
-                <td>
+                <td class="tableAction">
                     <a href="#"><i class="bi bi-pencil"></i></a>
                     <a href="#"><i class="bi bi-arrows-move"></i></a>
                     <a href="#"><i class="bi bi-trash-fill"></i></a>
@@ -160,7 +160,7 @@ $config = new Auth;
                 <td>Tobias Arantes</td>
                 <td>03/02/2022</td>
                 <td>Mustafá Soares</td>
-                <td>
+                <td class="tableAction">
                     <a href="#"><i class="bi bi-pencil"></i></a>
                     <a href="#"><i class="bi bi-arrows-move"></i></a>
                     <a href="#"><i class="bi bi-trash-fill"></i></a>
@@ -175,7 +175,7 @@ $config = new Auth;
                 <td>Tobias Arantes</td>
                 <td>03/02/2022</td>
                 <td>Mustafá Soares</td>
-                <td>
+                <td class="tableAction">
                     <a href="#"><i class="bi bi-pencil"></i></a>
                     <a href="#"><i class="bi bi-arrows-move"></i></a>
                     <a href="#"><i class="bi bi-trash-fill"></i></a>
@@ -190,7 +190,7 @@ $config = new Auth;
                 <td>Tobias Arantes</td>
                 <td>03/02/2022</td>
                 <td>Mustafá Soares</td>
-                <td>
+                <td class="tableAction">
                     <a href="#"><i class="bi bi-pencil"></i></a>
                     <a href="#"><i class="bi bi-arrows-move"></i></a>
                     <a href="#"><i class="bi bi-trash-fill"></i></a>
@@ -205,7 +205,7 @@ $config = new Auth;
                 <td>Tobias Arantes</td>
                 <td>03/02/2022</td>
                 <td>Mustafá Soares</td>
-                <td>
+                <td class="tableAction">
                     <a href="#"><i class="bi bi-pencil"></i></a>
                     <a href="#"><i class="bi bi-arrows-move"></i></a>
                     <a href="#"><i class="bi bi-trash-fill"></i></a>
@@ -215,7 +215,7 @@ $config = new Auth;
     </table>
     <!-- table end -->
     <div class="container-fluid p-0 mt-2">
-        <div class="btn btn-outline-primary" onclick="pageLoad('<?= $config->base; ?>/cad_produtos.php')">Adicionar produto</div>
+        <div class="btn btn-outline-primary" onclick="pageLoad('<?= $config->base; ?>/produtos_cad.php')">Adicionar produto</div>
     </div>
 </div>
 

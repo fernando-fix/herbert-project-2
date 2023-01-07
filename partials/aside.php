@@ -12,30 +12,30 @@
                 Consultar produto
             </div>
         </div>
-        <div class="custom-btn" onclick="pageLoad('movimentations')">
+        <!-- <div class="custom-btn" onclick="pageLoad('movimentations')">
             <div class="btn-icon"><i class="bi bi-arrows-move"></i></div>
             <div class="btn-text">
                 Consultar movimentações
             </div>
-        </div>
-        <div class="custom-btn" onclick="pageLoad('sectors')">
+        </div> -->
+        <div class="custom-btn" onclick="pageLoad('sectors.php')">
             <div class="btn-icon"><i class="bi bi-geo-alt-fill"></i></div>
             <div class="btn-text">
                 Consultar setores
             </div>
         </div>
-        <div class="custom-btn" onclick="pageLoad('users')">
+        <div class="custom-btn" onclick="pageLoad('users.php')">
             <div class="btn-icon"><i class="bi bi-people-fill"></i></div>
             <div class="btn-text">
                 Consultar usuários
             </div>
         </div>
-        <div class="custom-btn" onclick="pageLoad('config')">
+        <!-- <div class="custom-btn" onclick="pageLoad('config')">
             <div class="btn-icon"><i class="bi bi-gear-fill"></i></div>
             <div class="btn-text">
                 Meus dados
             </div>
-        </div>
+        </div> -->
     </div>
 </aside>
 <main>
