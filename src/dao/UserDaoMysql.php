@@ -18,6 +18,19 @@ class UserDaoMysql implements UserDao
         $this->pdo = $driver;
     }
 
+    public function findAll()
+    {
+        $sql = $this->pdo->query("SELECT * FROM users");
+        $sql->execute();
+
+        if ($sql->rowCount() > 0) {
+            $data = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+            return $data;
+        }
+        return false;
+    }
+
     public function findByToken($token)
     {
         if (isset($token)) {

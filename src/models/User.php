@@ -94,6 +94,7 @@ class User{
 }
 
 interface UserDao {
+    public function findAll();
     public function findByToken($token);
     public function findByEmail($email);
     public function updateToken($email, $token);

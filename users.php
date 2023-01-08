@@ -1,10 +1,19 @@
 <?php
 
+use src\dao\UserDaoMysql;
 use src\models\Auth;
 
 require "vendor/autoload.php";
 
-$config = new Auth;
+$auth = new Auth;
+
+
+$newUserDao = new UserDaoMysql($auth->connection);
+$data = $newUserDao->findAll();
+
+if (!is_array($data)) {
+    $data = [];
+}
 
 ?>
 
@@ -27,33 +36,27 @@ $config = new Auth;
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Joaquim da Silva</td>
-                <td>joaquim_silva@email.com</td>
-                <td>Consulta</td>
-                <td>Desenvolvimento de Software</td>
-                <td class="tableAction">
-                    <a href="#"><i class="bi bi-pencil"></i></a>
-                    <a href="#"><i class="bi bi-arrows-move"></i></a>
-                    <a href="#"><i class="bi bi-trash-fill"></i></a>
-                </td>
-            </tr>
-            <tr>
-                <td>Elieber da Soares</td>
-                <td>elieber_soares@email.com</td>
-                <td>Consulta</td>
-                <td>Help Desk</td>
-                <td class="tableAction">
-                    <a href="#"><i class="bi bi-pencil"></i></a>
-                    <a href="#"><i class="bi bi-arrows-move"></i></a>
-                    <a href="#"><i class="bi bi-trash-fill"></i></a>
-                </td>
-            </tr>
+
+            <?php if (count($data) > 0) : ?>
+                <?php foreach ($data as $item) : ?>
+                    <tr>
+                        <td><?= $item['name']; ?></td>
+                        <td><?= $item['email']; ?></td>
+                        <td><?= $item['grouplvl']; ?></td>
+                        <td><?= $item['sector']; ?></td>
+                        <td class="tableAction">
+                            <a href="#"><i class="bi bi-pencil"></i></a>
+                            <a href="#"><i class="bi bi-trash-fill"></i></a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            
         </tbody>
     </table>
     <!-- table end -->
     <div class="container-fluid p-0 mt-2">
-        <div class="btn btn-outline-primary" onclick="pageLoad('<?= $config->base; ?>/users_cad.php')">Adicionar usuário</div>
+        <div class="btn btn-outline-primary" onclick="pageLoad('<?= $auth->base; ?>/users_cad.php')">Adicionar usuário</div>
     </div>
 </div>
 
