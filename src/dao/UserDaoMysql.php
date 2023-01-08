@@ -78,7 +78,6 @@ class UserDaoMysql implements UserDao
 
     public function addUser(User $user)
     {
-        echo "<pre>";
         $sql = $this->pdo->prepare("INSERT INTO users
                 (name, email, grouplvl, sector, password, token, avatar) VALUES (
                 :name, :email, :grouplvl, :sector, :password, :token, :avatar)");

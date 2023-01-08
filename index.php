@@ -9,7 +9,6 @@ require "vendor/autoload.php";
 $auth = new Auth();
 $user = new User;
 
-$user->name;
 $userDao = new UserDaoMysql($auth->connection);
 ?>
 
