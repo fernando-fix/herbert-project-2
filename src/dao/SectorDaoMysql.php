@@ -49,11 +49,11 @@ class SectorDaoMysql implements SectorDao
     public function addSector(Sector $sector)
     {
         if (!empty($sector)) {
-            $sql = $this->pdo->prepare("INSERT INTO sectors (name) VALUES (:name)");
-            $sql->bindValue(':name', $sector->name);
+            $sql = $this->pdo->prepare("INSERT INTO sectors (name, responsible) VALUES (:name, :responsible)");
+            $sql->bindValue(':responsible', $sector->getResponsible());
+            $sql->bindValue(':name', $sector->getName());
             $sql->execute();
-
-            $_SESSION['success'] = "Setor cadastrado com sucesso";
+            
             return $sector;
         }
         return false;

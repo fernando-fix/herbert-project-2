@@ -32,6 +32,7 @@ $config = new Auth;
         <thead>
             <tr>
                 <th>Nome</th>
+                <th>Responsável</th>
                 <th>Ações</th>
             </tr>
         </thead>
@@ -40,6 +41,7 @@ $config = new Auth;
                 <?php foreach ($data as $item) : ?>
                     <tr>
                         <td><?= $item['name']; ?></td>
+                        <td><?= $item['responsible']; ?></td>
                         <td class="tableAction">
                             <a href="#" title="editar"><i class="bi bi-pencil"></i></a>
                             <a href="#" title="deletar"><i class="bi bi-trash-fill"></i></a>

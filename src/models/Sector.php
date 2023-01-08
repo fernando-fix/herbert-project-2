@@ -1,9 +1,12 @@
 <?php
+
 namespace src\models;
 
-class Sector{
+class Sector
+{
     public $id;
     public $name;
+    private $responsible;
 
     public function getId()
     {
@@ -24,9 +27,20 @@ class Sector{
         $this->name = $name;
         return $this;
     }
+
+    public function getResponsible()
+    {
+        return $this->responsible;
+    }
+    public function setResponsible($responsible): self
+    {
+        $this->responsible = ucwords(strtolower(trim($responsible)));
+        return $this;
+    }
 }
 
-interface SectorDao {
-    public function findSector(string $sector) : bool; //true, false
+interface SectorDao
+{
+    public function findSector(string $sector): bool; //true, false
     public function addSector(Sector $sector);
 }

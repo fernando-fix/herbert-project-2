@@ -21,6 +21,10 @@ $config = new Auth;
                 <label for="name" class="form-label">Nome do setor</label>
                 <input type="text" class="form-control" id="name" name="name" placeholder="Ex: financeiro" required>
             </div>
+            <div class="mb-3">
+                <label for="responsible" class="form-label">Responsável do setor</label>
+                <input type="text" class="form-control" id="responsible" name="responsible" placeholder="Ex: Juarez Soares" required>
+            </div>
             <button type="submit" class="btn btn-outline-primary">Cadastrar setor</button>
         </form>
     </div>
