@@ -43,7 +43,7 @@ class Auth
             if ($loggingUser != false) {
 
                 //verificar senhas
-                if (password_verify($password, $loggingUser->password)) {
+                if (password_verify($password, $loggingUser->getPassword())) {
                     //gerar token
                     $token = md5(time() . rand(1111, 9999) . time());
                     $_SESSION['token'] = $token;
@@ -58,7 +58,6 @@ class Auth
                     header("Location: " . $this->base . "/signin.php");
                     exit;
                 }
-
             } else {
                 $_SESSION['alert'] = 'Email não cadastrado! Para se cadastrar preencha os campos abaixo!';
                 $_SESSION['email'] = $email;
@@ -66,5 +65,26 @@ class Auth
                 exit;
             }
         }
+    }
+
+    public function registerUser(User $user)
+    {
+        $newUserDao = new UserDaoMysql($this->connection);
+        
+        // verificar se e-mail já existe
+        if ($newUserDao->findByEmail($user->getEmail()) != false) {
+            $_SESSION['alert'] = "E-mail já cadastrado no banco! informe outro e-mail";
+            header("location: " . $this->base . "/users_cad.php");
+            exit;
+        }
+
+        // tratar a senha envidada pelo usuário
+        $hash = password_hash($user->getPassword(), PASSWORD_DEFAULT);
+        $token = md5(time() . rand(0, 9999));
+
+        $user->setPassword($hash);
+        $user->setToken($token);
+
+        $newUserDao->addUser($user);
     }
 }

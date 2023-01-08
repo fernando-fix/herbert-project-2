@@ -20,9 +20,12 @@ $config = new Auth;
     <!-- tabela está daqui pra baixo -->
 
     <?php
-        $newSectorDao = new SectorDaoMysql($config->connection);
-        $data = $newSectorDao->findAll();
+    $newSectorDao = new SectorDaoMysql($config->connection);
+    $data = $newSectorDao->findAll();
 
+    if (!is_array($data)) {
+        $data = [];
+    }
     ?>
 
     <table id="example" class="table table-striped" style="width:100%">
@@ -33,17 +36,17 @@ $config = new Auth;
             </tr>
         </thead>
         <tbody>
-            <?php foreach($data as $item): ?>
-
-                <tr>
-                    <td><?= $item['name']; ?></td>
-                <td class="tableAction">
-                    <a href="#" title="editar"><i class="bi bi-pencil"></i></a>
-                    <a href="#" title="deletar"><i class="bi bi-trash-fill"></i></a>
-                </td>
-            </tr>
-
-            <?php endforeach; ?>
+            <?php if (count($data) > 0) : ?>
+                <?php foreach ($data as $item) : ?>
+                    <tr>
+                        <td><?= $item['name']; ?></td>
+                        <td class="tableAction">
+                            <a href="#" title="editar"><i class="bi bi-pencil"></i></a>
+                            <a href="#" title="deletar"><i class="bi bi-trash-fill"></i></a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            <?php endif; ?>
         </tbody>
     </table>
     <!-- table end -->

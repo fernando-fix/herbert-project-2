@@ -29,10 +29,10 @@ class UserDaoMysql implements UserDao
             if ($sql->rowCount() > 0) {
                 $data = $sql->fetch(PDO::FETCH_ASSOC);
                 $newUser = new User;
-                $newUser->id    =   $data['id'];
-                $newUser->name  =   $data['name'];
-                $newUser->email =   $data['email'];
-                $newUser->token =   $data['token'];
+                $newUser->setId($data['id']);
+                $newUser->setName($data['name']);
+                $newUser->setEmail($data['email']);
+                $newUser->setToken($data['token']);
 
                 return $newUser;
             }
@@ -51,11 +51,11 @@ class UserDaoMysql implements UserDao
             if ($sql->rowCount() > 0) {
                 $data = $sql->fetch(PDO::FETCH_ASSOC);
                 $newUser = new User;
-                $newUser->id        =   $data['id'];
-                $newUser->name      =   $data['name'];
-                $newUser->email     =   $data['email'];
-                $newUser->password  =   $data['password'];
-                $newUser->token     =   $data['token'];
+                $newUser->setId($data['id']);
+                $newUser->setName($data['name']);
+                $newUser->setEmail($data['email']);
+                $newUser->setPassword($data['password']);
+                $newUser->setToken($data['token']);
 
                 return $newUser;
             }
@@ -78,19 +78,17 @@ class UserDaoMysql implements UserDao
 
     public function addUser(User $user)
     {
-        if (!empty($user)) {
-            $sql = $this->pdo->prepare("INSERT INTO users
-                (name, email, password, token, avatar) VALUES (
-                :name, :email, :password, :token, :avatar)");
-            $sql->bindValue(':name', $user->name);
-            $sql->bindValue(':email', $user->email);
-            $sql->bindValue(':password', $user->password);
-            $sql->bindValue(':token', $user->token);
-            $sql->bindValue(':avatar', $user->avatar);
-            $sql->execute();
-
-            return $user;
-        }
-        return false;
+        echo "<pre>";
+        $sql = $this->pdo->prepare("INSERT INTO users
+                (name, email, grouplvl, sector, password, token, avatar) VALUES (
+                :name, :email, :grouplvl, :sector, :password, :token, :avatar)");
+        $sql->bindValue(':name', $user->getName());
+        $sql->bindValue(':email', $user->getEmail());
+        $sql->bindValue(':grouplvl', $user->getGrouplvl());
+        $sql->bindValue(':sector', $user->getSector());
+        $sql->bindValue(':password', $user->getPassword());
+        $sql->bindValue(':token', $user->getToken());
+        $sql->bindValue(':avatar', $user->getAvatar());
+        $sql->execute();
     }
 }
