@@ -1,0 +1,16 @@
+<?php
+
+use src\models\Auth;
+
+require_once "vendor/autoload.php";
+
+$auth = new Auth;
+
+
+$email = filter_input(INPUT_POST, "email");
+$password = filter_input(INPUT_POST, "password");
+
+$_SESSION['success'] = "E-mail: ".$email." - Senha: ".$password;
+
+header("Location: ".$auth->base."/login.php");
+exit;
