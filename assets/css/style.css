@@ -1,3 +1,5 @@
+@import url(alert.css);
+
 :root {
     /* sizes */
     --height-header: 40px;
@@ -5,10 +7,10 @@
     --width-min-aside: 50px;
     --width-max-aside: 220px;
     /* colors */
-    --color-header: #2c89f3;
+    --color-header: #4AB3C6;
     --color-aside: #ECECEC;
     --color-main: #F1F1F1;
-    --color-footer: #679dee;
+    --color-footer: #4AB3C6;
     /* transitions */
     --animation-going: all 0.8s ease;
     --animation-backing: all 0.3s ease;
@@ -28,69 +30,6 @@ body {
         "header header"
         "aside main";
     background-color: var(--color-main);
-}
-
-.messageAlertWarning {
-    position: absolute;
-    background-color: #ece2b6;
-    top: calc(var(--height-header) * -1);
-    left: 0;
-    right: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: var(--height-header);
-    overflow: hidden;
-    animation: 3s showAlert;
-}
-
-.messageAlertWarning-text {
-    color: #da8e03;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.messageAlertSuccess {
-    position: absolute;
-    background-color: #d7ecb6;
-    top: calc(var(--height-header) * -1);
-    left: 0;
-    right: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: var(--height-header);
-    overflow: hidden;
-    animation: 3s showAlert;
-}
-
-.messageAlertSuccess-text {
-    color: #3c7000;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-@keyframes showAlert {
-
-    /* começa sumido */
-    0% {
-        top: calc(var(--height-header) * -1);
-    }
-
-    /* continua aparecendo */
-    10% {
-        top: 0;
-    }
-
-    /* sumindo */
-    95% {
-        top: 0;
-        ;
-    }
-
-    100% {
-        top: calc(var(--height-header) * -1);
-    }
 }
 
 header {
