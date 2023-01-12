@@ -1,4 +1,9 @@
-<aside>
+<div class="menu-h" onclick="openMenuAside()">
+    <div class="menu-line"></div>
+    <div class="menu-line"></div>
+    <div class="menu-line"></div>
+</div>
+<aside id="aside" class="aside-min-width">
     <div class="inside">
         <div class="custom-btn" onclick="pageLoad('index.php')">
             <div class="btn-icon"><i class="bi bi-house-door-fill"></i></div>

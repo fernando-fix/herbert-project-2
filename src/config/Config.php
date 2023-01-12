@@ -11,7 +11,7 @@ class Config
     public $base;
     public $connection;
 
-    public $mode = "developer";
+    public $mode = "production";
 
     private $db_host;
     private $db_name;
