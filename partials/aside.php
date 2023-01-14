@@ -41,6 +41,12 @@
                 Meus dados
             </div>
         </div> -->
+        <div class="custom-btn" onclick="pageLoad('logoff.php')">
+            <div class="btn-icon"><i class="bi bi-box-arrow-right"></i></div>
+            <div class="btn-text">
+                Sair
+            </div>
+        </div>
     </div>
 </aside>
 <main>

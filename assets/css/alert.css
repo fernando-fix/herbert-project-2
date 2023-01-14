@@ -29,7 +29,7 @@
     justify-content: center;
     height: var(--height-header);
     overflow: hidden;
-    animation: 3s showAlert;
+    animation: 5s showAlert;
 }
 
 .messageAlertSuccess-text {

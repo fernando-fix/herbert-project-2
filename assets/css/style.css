@@ -47,6 +47,7 @@ header {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    /* alterar este para mudar a posição de menu */
     cursor: pointer;
 }
 

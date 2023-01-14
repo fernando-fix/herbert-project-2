@@ -10,6 +10,10 @@ $auth = new Auth;
 $email = filter_input(INPUT_POST, "email");
 $password = filter_input(INPUT_POST, "password");
 
+if($email && $password) {
+    $auth->validate_login($email, $password);
+}
+
 $_SESSION['success'] = "E-mail: ".$email." - Senha: ".$password;
 
 header("Location: ".$auth->base."/login.php");

@@ -31,7 +31,7 @@ class Auth
                 return $loggedUser;
             }
         }
-        header("Location: " . $this->base . "/signin.php");
+        header("Location: " . $this->base . "/login.php");
         exit;
     }
 
@@ -51,17 +51,18 @@ class Auth
                     //gravar token
                     $userDao->updateToken($email, $token);
 
+                    $_SESSION['success'] = 'Login efetuado com sucesso!';
                     header("Location: " . $this->base . "/index.php");
                     exit;
                 } else {
                     $_SESSION['alert'] = 'Senha incorreta, tente novamente!';
-                    header("Location: " . $this->base . "/signin.php");
+                    header("Location: " . $this->base . "/login.php");
                     exit;
                 }
             } else {
-                $_SESSION['alert'] = 'Email não cadastrado! Para se cadastrar preencha os campos abaixo!';
+                $_SESSION['alert'] = 'Email não cadastrado! Entre em contato com o administrador do sistema!';
                 $_SESSION['email'] = $email;
-                header("Location: " . $this->base . "/signup.php");
+                header("Location: " . $this->base . "/login.php");
                 exit;
             }
         }
