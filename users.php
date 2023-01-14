@@ -31,7 +31,6 @@ if (!is_array($data)) {
                 <th>Nome</th>
                 <th>E-mail</th>
                 <th>Grupo</th>
-                <th>Setor</th>
                 <th>Ações</th>
             </tr>
         </thead>
@@ -43,7 +42,6 @@ if (!is_array($data)) {
                         <td><?= $item['name']; ?></td>
                         <td><?= $item['email']; ?></td>
                         <td><?= $item['grouplvl']; ?></td>
-                        <td><?= $item['sector']; ?></td>
                         <td class="tableAction">
                             <a href="#"><i class="bi bi-pencil"></i></a>
                             <a href="#"><i class="bi bi-trash-fill"></i></a>
@@ -51,7 +49,7 @@ if (!is_array($data)) {
                     </tr>
                 <?php endforeach; ?>
             <?php endif; ?>
-            
+
         </tbody>
     </table>
     <!-- table end -->

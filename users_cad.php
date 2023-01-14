@@ -37,17 +37,6 @@ $config = new Auth;
             </div>
 
             <div class="mb-3">
-                <label for="sector">Setor</label>
-                <select class="form-select" id="sector" name="sector" aria-label="Floating label select example" required>
-                    <option value="" selected disabled>Clique para abrir este menu</option>
-                    <option value="1">T.I.</option>
-                    <option value="2">Sac</option>
-                    <option value="3">Financeiro</option>
-                    <option value="3">Compras</option>
-                </select>
-            </div>
-
-            <div class="mb-3">
                 <label for="password" class="form-label">Senha inicial</label>
                 <input autocomplete="off" type="password" class="form-control" id="password" name="password" placeholder="Ex: 1234" required>
             </div>

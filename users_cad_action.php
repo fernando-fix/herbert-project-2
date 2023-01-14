@@ -11,12 +11,11 @@ $auth = new Auth;
 $name = filter_input(INPUT_POST, "name");
 $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
 $grouplvl = filter_input(INPUT_POST, "grouplvl");
-$sector = filter_input(INPUT_POST, "sector");
 $password = filter_input(INPUT_POST, "password");
 $rpassword = filter_input(INPUT_POST, "rpassword");
 
 
-if ($name && $email && $grouplvl && $sector && $password && $rpassword) {
+if ($name && $email && $grouplvl && $password && $rpassword) {
 
     if (strlen($name) < 5) {
         $_SESSION['alert'] = "Informar o nome completo do usuário!";
@@ -40,7 +39,6 @@ if ($name && $email && $grouplvl && $sector && $password && $rpassword) {
     $newUser->setName($name);
     $newUser->setEmail($email);
     $newUser->setGrouplvl($grouplvl);
-    $newUser->setSector($sector);
     $newUser->setPassword($password);
 
     $auth->registerUser($newUser);
