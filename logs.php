@@ -5,9 +5,10 @@ use src\models\Auth;
 
 require "vendor/autoload.php";
 
-$config = new Auth;
+$auth = new Auth;
+$auth->isLogged();
 
-$newLogDao = new LogDaoMysql($config->connection);
+$newLogDao = new LogDaoMysql($auth->connection);
 $logs = $newLogDao->findAll();
 
 ?>
@@ -20,11 +21,11 @@ $logs = $newLogDao->findAll();
 </div>
 <div class="container-fluid my-2 px-5">
     <!-- tabela está daqui pra baixo -->
-    <table id="example" class="table table-striped" style="width:100%">
+    <table id="logs" class="table table-striped" style="width:100%">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Data e hora</th>
+                <th>Usuário</th>
                 <th>Tipo</th>
                 <th>Detalhes</th>
             </tr>
@@ -32,8 +33,8 @@ $logs = $newLogDao->findAll();
         <tbody>
             <?php foreach ($logs as $log) : ?>
                 <tr>
-                    <td><?= $log['id']; ?></td>
                     <td><?= date("d/m/Y H:i:s", strtotime($log['datetime'])); ?></td>
+                    <td><?= $log['user_name']; ?></td>
                     <td><?= $log['type']; ?></td>
                     <td><?= $log['detail']; ?></td>
                 </tr>
@@ -45,3 +46,17 @@ $logs = $newLogDao->findAll();
 
 
 <?php require "partials/footer.php"; ?>
+
+<script>
+    $(document).ready(function() {
+        $('#logs').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ],
+            order: [
+                [0, 'desc']
+            ],
+        });
+    });
+</script>

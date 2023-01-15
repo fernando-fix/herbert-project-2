@@ -1,5 +1,6 @@
 <?php
 
+use src\dao\LogDaoMysql;
 use src\dao\ProductDaoMysql;
 use src\models\Auth;
 use src\models\Product;
@@ -19,6 +20,7 @@ if ($patrimony && $product_name && $product_descr && $sector_id) {
 
     $newProduct = new Product;
     $newProductDao = new ProductDaoMysql($auth->connection);
+    $newLogDao = new LogDaoMysql($auth->connection);
 
     $newProduct->setPatrimony($patrimony);
     $newProduct->setName($product_name);
@@ -29,8 +31,9 @@ if ($patrimony && $product_name && $product_descr && $sector_id) {
 
 
     $newProductDao->addProduct($newProduct);
-    $_SESSION['Success'] = "Produto cadastrado com sucesso!";
+    $newLogDao->registerLog($loggedUser->getId(), "Cadastro de produto", "Produto: $product_name foi cadastrado", $datetime);
 
+    $_SESSION['Success'] = "Produto cadastrado com sucesso!";
 } else {
     $_SESSION['alert'] = "Recebi foi nada";
 }

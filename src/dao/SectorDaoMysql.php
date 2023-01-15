@@ -34,16 +34,16 @@ class SectorDaoMysql implements SectorDao
     }
 
     public function findAll(): array
-    {
+    {   
+        $data = [];
+
         $sql = $this->pdo->query("SELECT * FROM sectors");
 
         if ($sql->rowCount() > 0) {
             $data = $sql->fetchAll(PDO::FETCH_ASSOC);
-
-            return $data;
         }
-
-        return false;
+        
+        return $data;
     }
 
     public function addSector(Sector $sector)

@@ -5,9 +5,10 @@ use src\models\Auth;
 
 require "vendor/autoload.php";
 
-$config = new Auth;
+$auth = new Auth;
+$auth->isLogged();
 
-$newProductDao = new ProductDaoMysql($config->connection);
+$newProductDao = new ProductDaoMysql($auth->connection);
 $products = $newProductDao->findAll();
 
 ?>
@@ -54,7 +55,7 @@ $products = $newProductDao->findAll();
     </table>
     <!-- table end -->
     <div class="container-fluid p-0 mt-2">
-        <div class="btn btn-outline-primary" onclick="pageLoad('<?= $config->base; ?>/products_cad.php')">Adicionar produto</div>
+        <div class="btn btn-outline-primary" onclick="pageLoad('<?= $auth->base; ?>/products_cad.php')">Adicionar produto</div>
     </div>
 </div>
 

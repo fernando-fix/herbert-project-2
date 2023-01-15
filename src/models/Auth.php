@@ -3,6 +3,7 @@
 namespace src\models;
 
 use src\core\Config;
+use src\dao\LogDaoMysql;
 use src\dao\UserDaoMysql;
 
 require "src/config/Config.php";
@@ -39,6 +40,9 @@ class Auth
     {
         if (!empty($email) && !empty($password)) {
             $userDao = new UserDaoMysql($this->connection);
+            $logDao = new LogDaoMysql($this->connection);
+            $datetime = date("Y-m-d H:i:s");
+
             $loggingUser = $userDao->findByEmail($email);
             if ($loggingUser != false) {
 
@@ -50,6 +54,7 @@ class Auth
 
                     //gravar token
                     $userDao->updateToken($email, $token);
+                    $logDao->registerLog($loggingUser->getId(), "Login no sistema", "Usuário: " . $loggingUser->getName() . " logou no sistema", $datetime);
 
                     $_SESSION['success'] = 'Login efetuado com sucesso!';
                     header("Location: " . $this->base . "/index.php");
@@ -71,7 +76,7 @@ class Auth
     public function registerUser(User $user)
     {
         $newUserDao = new UserDaoMysql($this->connection);
-        
+
         // verificar se e-mail já existe
         if ($newUserDao->findByEmail($user->getEmail()) != false) {
             $_SESSION['alert'] = "E-mail já cadastrado no banco! informe outro e-mail";

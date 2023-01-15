@@ -22,7 +22,16 @@ class LogDaoMysql implements LogDao
     {
         $data = [];
 
-        $sql = $this->pdo->query("SELECT * FROM logs");
+        $sql = $this->pdo->query(
+            "SELECT logs.*,
+            users.name as user_name
+            FROM
+            logs
+            JOIN
+            users
+            ON
+            user_id = users.id"
+        );
         $sql->execute();
 
         if ($sql->rowCount() > 0) {
@@ -30,5 +39,18 @@ class LogDaoMysql implements LogDao
         }
 
         return $data;
+    }
+    public function registerLog($user_id, $type, $message, $datetime)
+    {
+        if ($type && $message && $datetime) {
+            $sql = $this->pdo->prepare("INSERT INTO logs (user_id, type, detail, datetime) VALUES (:user_id, :type, :message, :datetime)");
+            $sql->bindValue(':user_id', $user_id);
+            $sql->bindValue(':type', $type);
+            $sql->bindValue(':message', $message);
+            $sql->bindValue(':datetime', $datetime);
+            $sql->execute();
+        } else {
+            $_SESSION['alert'] = "Erro ao registrar log";
+        }
     }
 }

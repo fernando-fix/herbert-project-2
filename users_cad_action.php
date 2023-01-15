@@ -1,5 +1,6 @@
 <?php
 
+use src\dao\LogDaoMysql;
 use src\dao\UserDaoMysql;
 use src\models\Auth;
 use src\models\User;
@@ -7,6 +8,8 @@ use src\models\User;
 require_once "vendor/autoload.php";
 
 $auth = new Auth;
+$loggedUser = $auth->isLogged();
+$newLogDao = new LogDaoMysql($auth->connection);
 
 $name = filter_input(INPUT_POST, "name");
 $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
@@ -14,6 +17,7 @@ $grouplvl = filter_input(INPUT_POST, "grouplvl");
 $password = filter_input(INPUT_POST, "password");
 $rpassword = filter_input(INPUT_POST, "rpassword");
 
+$datetime = date("Y-m-d H:i:s");
 
 if ($name && $email && $grouplvl && $password && $rpassword) {
 
@@ -41,6 +45,7 @@ if ($name && $email && $grouplvl && $password && $rpassword) {
     $newUser->setGrouplvl($grouplvl);
     $newUser->setPassword($password);
 
+    $newLogDao->registerLog($loggedUser->getId(), "Cadastro de usuário", "Usuário: " . $newUser->getName() . " Cadastrado", $datetime);
     $auth->registerUser($newUser);
 
     $_SESSION['success'] = "Cadastro efetuado com sucesso!";
