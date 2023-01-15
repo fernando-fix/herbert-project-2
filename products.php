@@ -1,10 +1,14 @@
 <?php
 
+use src\dao\ProductDaoMysql;
 use src\models\Auth;
 
 require "vendor/autoload.php";
 
 $config = new Auth;
+
+$newProductDao = new ProductDaoMysql($config->connection);
+$products = $newProductDao->findAll();
 
 ?>
 
@@ -19,7 +23,6 @@ $config = new Auth;
     <table id="example" class="table table-striped" style="width:100%">
         <thead>
             <tr>
-                <th>id</th>
                 <th>Nº Patrimônio</th>
                 <th>Nome</th>
                 <th>Descrição</th>
@@ -31,186 +34,22 @@ $config = new Auth;
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>5526</td>
-                <td>Desktop Dell</td>
-                <td>Memoria 8GB</td>
-                <td>RH</td>
-                <td>John Wich</td>
-                <td>25/01/2022</td>
-                <td>Mustafá Soares</td>
-                <td class="tableAction">
-                    <a href="#"><i class="bi bi-pencil"></i></a>
-                    <a href="#"><i class="bi bi-arrows-move"></i></a>
-                    <a href="#"><i class="bi bi-trash-fill"></i></a>
-                </td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>5326</td>
-                <td>Desktop CEE</td>
-                <td>Memoria 4GB</td>
-                <td>Financeiro</td>
-                <td>Tobias Arantes</td>
-                <td>03/02/2022</td>
-                <td>Mustafá Soares</td>
-                <td class="tableAction">
-                    <a href="#"><i class="bi bi-pencil"></i></a>
-                    <a href="#"><i class="bi bi-arrows-move"></i></a>
-                    <a href="#"><i class="bi bi-trash-fill"></i></a>
-                </td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>5326</td>
-                <td>Desktop CEE</td>
-                <td>Memoria 4GB</td>
-                <td>Financeiro</td>
-                <td>Tobias Arantes</td>
-                <td>03/02/2022</td>
-                <td>Mustafá Soares</td>
-                <td class="tableAction">
-                    <a href="#"><i class="bi bi-pencil"></i></a>
-                    <a href="#"><i class="bi bi-arrows-move"></i></a>
-                    <a href="#"><i class="bi bi-trash-fill"></i></a>
-                </td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>5326</td>
-                <td>Desktop CEE</td>
-                <td>Memoria 4GB</td>
-                <td>Financeiro</td>
-                <td>Tobias Arantes</td>
-                <td>03/02/2022</td>
-                <td>Mustafá Soares</td>
-                <td class="tableAction">
-                    <a href="#"><i class="bi bi-pencil"></i></a>
-                    <a href="#"><i class="bi bi-arrows-move"></i></a>
-                    <a href="#"><i class="bi bi-trash-fill"></i></a>
-                </td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>5326</td>
-                <td>Desktop CEE</td>
-                <td>Memoria 4GB</td>
-                <td>Financeiro</td>
-                <td>Tobias Arantes</td>
-                <td>03/02/2022</td>
-                <td>Mustafá Soares</td>
-                <td class="tableAction">
-                    <a href="#"><i class="bi bi-pencil"></i></a>
-                    <a href="#"><i class="bi bi-arrows-move"></i></a>
-                    <a href="#"><i class="bi bi-trash-fill"></i></a>
-                </td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>5326</td>
-                <td>Desktop CEE</td>
-                <td>Memoria 4GB</td>
-                <td>Financeiro</td>
-                <td>Tobias Arantes</td>
-                <td>03/02/2022</td>
-                <td>Mustafá Soares</td>
-                <td class="tableAction">
-                    <a href="#"><i class="bi bi-pencil"></i></a>
-                    <a href="#"><i class="bi bi-arrows-move"></i></a>
-                    <a href="#"><i class="bi bi-trash-fill"></i></a>
-                </td>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td>5326</td>
-                <td>Desktop CEE</td>
-                <td>Memoria 4GB</td>
-                <td>Financeiro</td>
-                <td>Tobias Arantes</td>
-                <td>03/02/2022</td>
-                <td>Mustafá Soares</td>
-                <td class="tableAction">
-                    <a href="#"><i class="bi bi-pencil"></i></a>
-                    <a href="#"><i class="bi bi-arrows-move"></i></a>
-                    <a href="#"><i class="bi bi-trash-fill"></i></a>
-                </td>
-            </tr>
-            <tr>
-                <td>8</td>
-                <td>5326</td>
-                <td>Desktop CEE</td>
-                <td>Memoria 4GB</td>
-                <td>Financeiro</td>
-                <td>Tobias Arantes</td>
-                <td>03/02/2022</td>
-                <td>Mustafá Soares</td>
-                <td class="tableAction">
-                    <a href="#"><i class="bi bi-pencil"></i></a>
-                    <a href="#"><i class="bi bi-arrows-move"></i></a>
-                    <a href="#"><i class="bi bi-trash-fill"></i></a>
-                </td>
-            </tr>
-            <tr>
-                <td>9</td>
-                <td>5326</td>
-                <td>Desktop CEE</td>
-                <td>Memoria 4GB</td>
-                <td>Financeiro</td>
-                <td>Tobias Arantes</td>
-                <td>03/02/2022</td>
-                <td>Mustafá Soares</td>
-                <td class="tableAction">
-                    <a href="#"><i class="bi bi-pencil"></i></a>
-                    <a href="#"><i class="bi bi-arrows-move"></i></a>
-                    <a href="#"><i class="bi bi-trash-fill"></i></a>
-                </td>
-            </tr>
-            <tr>
-                <td>10</td>
-                <td>5326</td>
-                <td>Desktop CEE</td>
-                <td>Memoria 4GB</td>
-                <td>Financeiro</td>
-                <td>Tobias Arantes</td>
-                <td>03/02/2022</td>
-                <td>Mustafá Soares</td>
-                <td class="tableAction">
-                    <a href="#"><i class="bi bi-pencil"></i></a>
-                    <a href="#"><i class="bi bi-arrows-move"></i></a>
-                    <a href="#"><i class="bi bi-trash-fill"></i></a>
-                </td>
-            </tr>
-            <tr>
-                <td>11</td>
-                <td>5326</td>
-                <td>Desktop CEE</td>
-                <td>Memoria 4GB</td>
-                <td>Financeiro</td>
-                <td>Tobias Arantes</td>
-                <td>03/02/2022</td>
-                <td>Mustafá Soares</td>
-                <td class="tableAction">
-                    <a href="#"><i class="bi bi-pencil"></i></a>
-                    <a href="#"><i class="bi bi-arrows-move"></i></a>
-                    <a href="#"><i class="bi bi-trash-fill"></i></a>
-                </td>
-            </tr>
-            <tr>
-                <td>12</td>
-                <td>5326</td>
-                <td>Desktop CEE</td>
-                <td>Memoria 4GB</td>
-                <td>Financeiro</td>
-                <td>Tobias Arantes</td>
-                <td>03/02/2022</td>
-                <td>Mustafá Soares</td>
-                <td class="tableAction">
-                    <a href="#"><i class="bi bi-pencil"></i></a>
-                    <a href="#"><i class="bi bi-arrows-move"></i></a>
-                    <a href="#"><i class="bi bi-trash-fill"></i></a>
-                </td>
-            </tr>
+            <?php foreach ($products as $product) : ?>
+                <tr>
+                    <td><?= $product['patrimony']; ?></td>
+                    <td><?= $product['name']; ?></td>
+                    <td><?= $product['description']; ?></td>
+                    <td><?= $product['sector_name']; ?></td>
+                    <td><?= $product['responsible']; ?></td>
+                    <td><?= $product['last_mov']; ?></td>
+                    <td><?= $product['id_resp_mov']; ?></td>
+                    <td class="tableAction">
+                        <a href="#"><i class="bi bi-pencil"></i></a>
+                        <a href="#"><i class="bi bi-arrows-move"></i></a>
+                        <a href="#"><i class="bi bi-trash-fill"></i></a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
         </tbody>
     </table>
     <!-- table end -->

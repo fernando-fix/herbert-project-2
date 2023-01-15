@@ -6,7 +6,6 @@ class User{
     private $name;
     private $email;
     private $grouplvl;
-    private $sector;
     private $password;
     private $token;
     private $avatar = 'default.jpg';
@@ -49,16 +48,6 @@ class User{
     public function setGrouplvl($grouplvl): self
     {
         $this->grouplvl = $grouplvl;
-        return $this;
-    }
-    
-    public function getSector()
-    {
-        return $this->sector;
-    }
-    public function setSector($sector): self
-    {
-        $this->sector = $sector;
         return $this;
     }
     

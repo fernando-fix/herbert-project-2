@@ -1,16 +1,20 @@
 <?php
+
 namespace src\models;
 
-class Product{
-    public $id;
-    public $name = "Fernando";
-    public $email;
-    public $password;
-    public $token;
-    public $avatar = 'default.jpg';
+class Product
+{
+    private $id;
+    private $patrimony;
+    private $name;
+    private $description;
+    private $last_mov;
+    private $id_sector;
+    private $id_resp_mov;
 }
 
-interface ProductDao {
+interface ProductDao
+{
     public function findAll();
     public function addProduct(Product $p);
 }

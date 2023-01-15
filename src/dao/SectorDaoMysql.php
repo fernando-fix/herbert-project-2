@@ -33,7 +33,7 @@ class SectorDaoMysql implements SectorDao
         }
     }
 
-    public function findAll()
+    public function findAll(): array
     {
         $sql = $this->pdo->query("SELECT * FROM sectors");
 
@@ -53,7 +53,7 @@ class SectorDaoMysql implements SectorDao
             $sql->bindValue(':responsible', $sector->getResponsible());
             $sql->bindValue(':name', $sector->getName());
             $sql->execute();
-            
+
             return $sector;
         }
         return false;

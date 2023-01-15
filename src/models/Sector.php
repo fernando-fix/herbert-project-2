@@ -41,6 +41,7 @@ class Sector
 
 interface SectorDao
 {
+    public function findAll() : array;
     public function findSector(string $sector): bool; //true, false
     public function addSector(Sector $sector);
 }

@@ -20,26 +20,15 @@ class ProductDaoMysql implements ProductDao
 
     public function findAll()
     {
-        if (isset($token)) {
+        $sql = $this->pdo->query("SELECT products.*, sectors.name as 'sector_name', sectors.responsible as responsible FROM products JOIN sectors ON id_sector = sectors.id");
+        $sql->execute();
 
-            $sql = $this->pdo->query("SELECT * FROM products");
-            $sql->execute();
-
-            if ($sql->rowCount() > 0) {
-                $data = $sql->fetch(PDO::FETCH_ASSOC);
-                $newProduct = new Product;
-                $newProduct->id    =   $data['id'];
-                $newProduct->id    =   $data['id'];
-                $newProduct->id    =   $data['id'];
-                $newProduct->id    =   $data['id'];
-                $newProduct->id    =   $data['id'];
-                $newProduct->id    =   $data['id'];
-                
-
-                return $newProduct;
-            }
-            return false;
+        if ($sql->rowCount() > 0) {
+            $data = $sql->fetchAll(PDO::FETCH_ASSOC);
+            return $data;
         }
+        $data = [];
+        return $data;
     }
 
     public function addProduct(Product $p)
