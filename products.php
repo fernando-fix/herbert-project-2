@@ -29,7 +29,7 @@ $products = $newProductDao->findAll();
                 <th>Setor</th>
                 <th>Resp. Setor</th>
                 <th>Movido em:</th>
-                <th>Resp. Mov.</th>
+                <th>Última ação</th>
                 <th>Ações</th>
             </tr>
         </thead>
@@ -41,8 +41,8 @@ $products = $newProductDao->findAll();
                     <td><?= $product['description']; ?></td>
                     <td><?= $product['sector_name']; ?></td>
                     <td><?= $product['responsible']; ?></td>
-                    <td><?= $product['last_mov']; ?></td>
-                    <td><?= $product['id_resp_mov']; ?></td>
+                    <td><?= date("d/m/Y H:i:s", strtotime($product['last_mov'])); ?></td>
+                    <td><?= $product['resp_mov_name']; ?></td>
                     <td class="tableAction">
                         <a href="#"><i class="bi bi-pencil"></i></a>
                         <a href="#"><i class="bi bi-arrows-move"></i></a>
@@ -54,7 +54,7 @@ $products = $newProductDao->findAll();
     </table>
     <!-- table end -->
     <div class="container-fluid p-0 mt-2">
-        <div class="btn btn-outline-primary" onclick="pageLoad('<?= $config->base; ?>/produtos_cad.php')">Adicionar produto</div>
+        <div class="btn btn-outline-primary" onclick="pageLoad('<?= $config->base; ?>/products_cad.php')">Adicionar produto</div>
     </div>
 </div>
 

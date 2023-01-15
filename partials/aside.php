@@ -17,12 +17,6 @@
                 Consultar produto
             </div>
         </div>
-        <!-- <div class="custom-btn" onclick="pageLoad('movimentations')">
-            <div class="btn-icon"><i class="bi bi-arrows-move"></i></div>
-            <div class="btn-text">
-                Consultar movimentações
-            </div>
-        </div> -->
         <div class="custom-btn" onclick="pageLoad('sectors.php')">
             <div class="btn-icon"><i class="bi bi-geo-alt-fill"></i></div>
             <div class="btn-text">
@@ -33,6 +27,12 @@
             <div class="btn-icon"><i class="bi bi-people-fill"></i></div>
             <div class="btn-text">
                 Consultar usuários
+            </div>
+        </div>
+        <div class="custom-btn" onclick="pageLoad('logs.php')">
+            <div class="btn-icon"><i class="bi bi-database-fill"></i></div>
+            <div class="btn-text">
+                Consultar logs
             </div>
         </div>
         <!-- <div class="custom-btn" onclick="pageLoad('config')">
