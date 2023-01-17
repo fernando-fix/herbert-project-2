@@ -35,7 +35,7 @@ if ($patrimony && $product_name && $product_descr && $sector_id) {
 
     $_SESSION['Success'] = "Produto cadastrado com sucesso!";
 } else {
-    $_SESSION['alert'] = "Recebi foi nada";
+    $_SESSION['alert'] = "Preencha todos os dados para cadastrar um produto!";
 }
 
 header("location: " . $auth->base . "/products.php");

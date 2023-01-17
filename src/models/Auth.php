@@ -54,7 +54,7 @@ class Auth
 
                     //gravar token
                     $userDao->updateToken($email, $token);
-                    $logDao->registerLog($loggingUser->getId(), "Login no sistema", "Usuário: " . $loggingUser->getName() . " logou no sistema", $datetime);
+                    $logDao->registerLog($loggingUser->getId(), "Login no sistema", "Usuário entrou no sistema", $datetime);
 
                     $_SESSION['success'] = 'Login efetuado com sucesso!';
                     header("Location: " . $this->base . "/index.php");
