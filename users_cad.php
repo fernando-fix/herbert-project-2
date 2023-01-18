@@ -4,12 +4,19 @@ use src\models\Auth;
 
 require "vendor/autoload.php";
 
-$config = new Auth;
+$auth = new Auth;
 
 ?>
 
 <?php require "partials/header.php"; ?>
 <?php require "partials/aside.php" ?>
+
+<?php
+
+$loggedUser = $auth->isLogged();
+$auth->accessRedirect($loggedUser->getId(), [4], "users.php");
+
+?>
 
 <div class="container-fluid my-4 px-5">
     <h2>Cadastro de usuários</h2>

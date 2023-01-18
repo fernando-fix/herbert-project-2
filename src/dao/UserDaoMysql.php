@@ -20,7 +20,17 @@ class UserDaoMysql implements UserDao
 
     public function findAll()
     {
-        $sql = $this->pdo->query("SELECT * FROM users");
+        $sql = $this->pdo->query(
+            "SELECT
+            users.*,
+            grouplvls.name as 'grouplvl'
+            FROM
+            users
+            JOIN
+            grouplvls
+            ON grouplvl = grouplvls.id"
+        );
+
         $sql->execute();
 
         if ($sql->rowCount() > 0) {
@@ -44,6 +54,7 @@ class UserDaoMysql implements UserDao
                 $newUser = new User;
                 $newUser->setId($data['id']);
                 $newUser->setName($data['name']);
+                $newUser->setGrouplvl($data['grouplvl']);
                 $newUser->setEmail($data['email']);
                 $newUser->setToken($data['token']);
 

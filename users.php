@@ -20,6 +20,13 @@ if (!is_array($data)) {
 <?php require "partials/header.php"; ?>
 <?php require "partials/aside.php" ?>
 
+<?php
+
+$loggedUser = $auth->isLogged();
+$auth->accessRedirect($loggedUser->getGrouplvl(), [2,3,4]);
+
+?>
+
 <div class="container-fluid my-4 px-5">
     <h2>Consulta de usuários</h2>
 </div>

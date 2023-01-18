@@ -14,7 +14,5 @@ if($email && $password) {
     $auth->validate_login($email, $password);
 }
 
-$_SESSION['success'] = "E-mail: ".$email." - Senha: ".$password;
-
 header("Location: ".$auth->base."/login.php");
 exit;

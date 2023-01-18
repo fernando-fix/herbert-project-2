@@ -23,7 +23,6 @@ class Auth
 
     public function isLogged()
     {
-
         if (isset($_SESSION['token'])) {
             $token = $_SESSION['token'];
             $userDao = new UserDaoMysql($this->connection);
@@ -54,7 +53,7 @@ class Auth
 
                     //gravar token
                     $userDao->updateToken($email, $token);
-                    $logDao->registerLog($loggingUser->getId(), "Login no sistema", "Usuário entrou no sistema", $datetime);
+                    $logDao->registerLog($loggingUser->getId(), "Login", "Usuário entrou no sistema", $datetime);
 
                     $_SESSION['success'] = 'Login efetuado com sucesso!';
                     header("Location: " . $this->base . "/index.php");
@@ -92,5 +91,25 @@ class Auth
         $user->setToken($token);
 
         $newUserDao->addUser($user);
+    }
+
+    public function accessView(int $userGroupId, array $accessNumbers): bool
+    {
+        if (in_array($userGroupId, $accessNumbers)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function accessRedirect(int $userGroupId, array $accessNumbers, $page = "index.php"): bool
+    {
+        if (in_array($userGroupId, $accessNumbers)) {
+            return true;
+        } else {
+            $_SESSION['alert'] = "Você não tem acesso a esta funcionalidade";
+            header("Location: " . $this->base . "/" . $page);
+            return false;
+        }
     }
 }

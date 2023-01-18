@@ -5,7 +5,7 @@ use src\models\Auth;
 
 require "vendor/autoload.php";
 
-$config = new Auth;
+$auth = new Auth;
 
 ?>
 
@@ -20,7 +20,7 @@ $config = new Auth;
     <!-- tabela está daqui pra baixo -->
 
     <?php
-    $newSectorDao = new SectorDaoMysql($config->connection);
+    $newSectorDao = new SectorDaoMysql($auth->connection);
     $data = $newSectorDao->findAll();
 
     if (!is_array($data)) {
@@ -53,7 +53,7 @@ $config = new Auth;
     </table>
     <!-- table end -->
     <div class="container-fluid p-0 mt-2">
-        <div class="btn btn-outline-primary" onclick="pageLoad('<?= $config->base; ?>/sectors_cad.php')">Adicionar setor</div>
+        <div class="btn btn-outline-primary" onclick="pageLoad('<?= $auth->base; ?>/sectors_cad.php')">Adicionar setor</div>
     </div>
 </div>
 
