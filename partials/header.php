@@ -27,7 +27,7 @@
 </head>
 
 <body>
-    <?php if (isset($_SESSION['alert']) and $_SESSION['alert'] != "") : ?>
+    <?php if (isset($_SESSION['alert']) && $_SESSION['alert'] != "") : ?>
         <div class="messageAlertWarning">
             <div class="messageAlertWarning-text">
                 <?= $_SESSION['alert']; ?>
@@ -35,7 +35,7 @@
             </div>
         </div>
     <?php endif; ?>
-    <?php if (isset($_SESSION['success']) and $_SESSION['success'] != "") : ?>
+    <?php if (isset($_SESSION['success']) && $_SESSION['success'] != "") : ?>
         <div class="messageAlertSuccess">
             <div class="messageAlertSuccess-text">
                 <?= $_SESSION['success']; ?>

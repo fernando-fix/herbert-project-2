@@ -20,6 +20,8 @@ class UserDaoMysql implements UserDao
 
     public function findAll()
     {
+        $data = [];
+
         $sql = $this->pdo->query(
             "SELECT
             users.*,
@@ -35,10 +37,9 @@ class UserDaoMysql implements UserDao
 
         if ($sql->rowCount() > 0) {
             $data = $sql->fetchAll(PDO::FETCH_ASSOC);
-
-            return $data;
         }
-        return false;
+
+        return $data;
     }
 
     public function findByToken($token)

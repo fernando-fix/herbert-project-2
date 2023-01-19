@@ -109,7 +109,7 @@ class Auth
         } else {
             $_SESSION['alert'] = "Você não tem acesso a esta funcionalidade";
             header("Location: " . $this->base . "/" . $page);
-            return false;
+            exit;
         }
     }
 }

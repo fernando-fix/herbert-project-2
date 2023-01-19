@@ -6,24 +6,15 @@ use src\models\Auth;
 require "vendor/autoload.php";
 
 $auth = new Auth;
-
-
 $newUserDao = new UserDaoMysql($auth->connection);
-$data = $newUserDao->findAll();
-
-if (!is_array($data)) {
-    $data = [];
-}
-
-?>
-
-<?php require "partials/header.php"; ?>
-<?php require "partials/aside.php" ?>
-
-<?php
 
 $loggedUser = $auth->isLogged();
-$auth->accessRedirect($loggedUser->getGrouplvl(), [2,3,4]);
+$auth->accessRedirect($loggedUser->getGrouplvl(), [2, 3, 4]);
+
+$data = $newUserDao->findAll();
+
+require "partials/header.php";
+require "partials/aside.php";
 
 ?>
 
