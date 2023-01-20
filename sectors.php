@@ -43,7 +43,7 @@ $auth = new Auth;
                         <td><?= $item['name']; ?></td>
                         <td><?= $item['responsible']; ?></td>
                         <td class="tableAction">
-                            <a href="#" title="editar"><i class="bi bi-pencil"></i></a>
+                            <a href="<?= $auth->base; ?>/sectors_edit.php?id=<?= $item['id']; ?>" title="editar"><i class="bi bi-pencil"></i></a>
                             <a href="#" title="deletar"><i class="bi bi-trash-fill"></i></a>
                         </td>
                     </tr>

@@ -5,7 +5,7 @@ class User{
     private $id;
     private $name;
     private $email;
-    private $grouplvl;
+    private $grouplvl = 1;
     private $password;
     private $token;
     private $avatar = 'default.jpg';

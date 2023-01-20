@@ -37,9 +37,10 @@ $auth->accessRedirect($loggedUser->getId(), [4], "users.php");
                 <label for="grouplvl">Grupo</label>
                 <select class="form-select" id="grouplvl" name="grouplvl" aria-label="Floating label select example" required>
                     <option value="" selected disabled>Clique para abrir este menu</option>
-                    <option value="Consulta">Consulta</option>
-                    <option value="Movimentação">Movimentação</option>
-                    <option value="Cadastro">Cadastro</option>
+                    <option value="1">Consulta</option>
+                    <option value="2">Movimentação</option>
+                    <option value="3">Cadastro</option>
+                    <option value="4">Administrador</option>
                 </select>
             </div>
 

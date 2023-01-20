@@ -4,7 +4,9 @@ use src\models\Auth;
 
 require "vendor/autoload.php";
 
-$config = new Auth;
+$auth = new Auth;
+$loggedUser = $auth->isLogged();
+$auth->accessRedirect($loggedUser->getId(), [1, 2, 3, 4], "sectors.php");
 
 ?>
 

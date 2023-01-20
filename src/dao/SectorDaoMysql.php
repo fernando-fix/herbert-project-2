@@ -34,7 +34,7 @@ class SectorDaoMysql implements SectorDao
     }
 
     public function findAll(): array
-    {   
+    {
         $data = [];
 
         $sql = $this->pdo->query("SELECT * FROM sectors");
@@ -42,7 +42,7 @@ class SectorDaoMysql implements SectorDao
         if ($sql->rowCount() > 0) {
             $data = $sql->fetchAll(PDO::FETCH_ASSOC);
         }
-        
+
         return $data;
     }
 
@@ -57,5 +57,25 @@ class SectorDaoMysql implements SectorDao
             return $sector;
         }
         return false;
+    }
+
+    public function findById($id)
+    {
+        $sector = [];
+
+        $sql = $this->pdo->prepare("SELECT * FROM sectors WHERE id = :id");
+        $sql->bindValue(':id', $id);
+        $sql->execute();
+        $sector = $sql->fetch(PDO::FETCH_ASSOC);
+
+        return $sector;
+    }
+
+    public function updateSector(Sector $s) {
+        $sql = $this->pdo->prepare("UPDATE sectors SET name = :name, responsible = :responsible WHERE id = :id");
+        $sql->bindValue(':id', $s->getId());
+        $sql->bindValue(':name', $s->getName());
+        $sql->bindValue(':responsible', $s->getResponsible());
+        $sql->execute();
     }
 }

@@ -5,8 +5,12 @@ use src\models\Auth;
 
 require "vendor/autoload.php";
 
-$config = new Auth;
-$newSectorDao = new SectorDaoMysql($config->connection);
+$auth = new Auth;
+
+$loggedUser = $auth->isLogged();
+$auth->accessRedirect($loggedUser->getId(), [3, 4], "products.php");
+
+$newSectorDao = new SectorDaoMysql($auth->connection);
 $sectors = $newSectorDao->findAll();
 
 ?>
@@ -42,7 +46,7 @@ $sectors = $newSectorDao->findAll();
                     <?php foreach ($sectors as $sector) : ?>
                         <option value="<?= $sector['id']; ?>"><?= $sector['name']; ?></option>
                     <?php endforeach; ?>
-                    
+
                 </select>
             </div>
             <button type="submit" class="btn btn-outline-primary">Cadastrar produto</button>

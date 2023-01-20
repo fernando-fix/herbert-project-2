@@ -6,15 +6,17 @@ use src\models\Auth;
 require "vendor/autoload.php";
 
 $auth = new Auth;
-$auth->isLogged();
-
 $newLogDao = new LogDaoMysql($auth->connection);
+
+$loggedUser = $auth->isLogged();
+$auth->accessRedirect($loggedUser->getGrouplvl(), [1, 2, 3, 4]);
+
 $logs = $newLogDao->findAll();
 
-?>
+require "partials/header.php";
+require "partials/aside.php"
 
-<?php require "partials/header.php"; ?>
-<?php require "partials/aside.php" ?>
+?>
 
 <div class="container-fluid my-4 px-5">
     <h2>Consulta de logs</h2>
