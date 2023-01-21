@@ -2,7 +2,7 @@
 
 namespace src\models;
 
-class Log
+class Grouplvl
 {
     private $id;
     private $name;
@@ -28,4 +28,8 @@ class Log
 
         return $this;
     }
+}
+interface GrouplvlDao
+{
+    public function findById($id): string;
 }

@@ -1,3 +1,16 @@
+<?php
+
+use src\dao\GrouplvlDaoMysql;
+use src\models\Auth;
+
+require_once "./vendor/autoload.php";
+
+$auth = new Auth;
+$loggedUser = $auth->isLogged();
+$newGrouplvl = new GrouplvlDaoMysql($auth->connection);
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -44,6 +57,8 @@
         </div>
     <?php endif; ?>
 
-    <header>
-        ...
+    <header class="d-flex align-items-center">
+        <div class="text-white h4">
+            Grupo: <?= $newGrouplvl->findById($loggedUser->getGrouplvl()); ?>
+        </div>
     </header>

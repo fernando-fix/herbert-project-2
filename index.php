@@ -4,7 +4,7 @@ use src\dao\UserDaoMysql;
 use src\models\Auth;
 use src\models\User;
 
-require "vendor/autoload.php";
+require_once "vendor/autoload.php";
 
 $auth = new Auth();
 $user = new User;

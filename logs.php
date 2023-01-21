@@ -3,7 +3,7 @@
 use src\dao\LogDaoMysql;
 use src\models\Auth;
 
-require "vendor/autoload.php";
+require_once "vendor/autoload.php";
 
 $auth = new Auth;
 $newLogDao = new LogDaoMysql($auth->connection);
