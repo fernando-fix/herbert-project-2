@@ -42,6 +42,23 @@ class UserDaoMysql implements UserDao
         return $data;
     }
 
+    public function findById($id)
+    {
+        $data = [];
+
+        if ($id) {
+            $sql = $this->pdo->prepare("SELECT * FROM users WHERE id = :id");
+            $sql->bindValue(':id', $id);
+            $sql->execute();
+
+            if ($sql->rowCount() > 0) {
+                $data = $sql->fetch(PDO::FETCH_ASSOC);
+            }
+        }
+
+        return $data;
+    }
+
     public function findByToken($token)
     {
         if (isset($token)) {
@@ -99,6 +116,38 @@ class UserDaoMysql implements UserDao
             return true;
         }
         return false;
+    }
+
+    public function updateName(User $user)
+    {
+        $sql = $this->pdo->prepare("UPDATE users SET name = :name WHERE id = :id");
+        $sql->bindValue(':id', $user->getId());
+        $sql->bindValue(':name', $user->getName());
+        $sql->execute();
+    }
+
+    public function updateEmail(User $user)
+    {
+        $sql = $this->pdo->prepare("UPDATE users SET email = :email WHERE id = :id");
+        $sql->bindValue(':id', $user->getId());
+        $sql->bindValue(':email', $user->getEmail());
+        $sql->execute();
+    }
+
+    public function updateGrouplvl(User $user)
+    {
+        $sql = $this->pdo->prepare("UPDATE users SET grouplvl = :grouplvl WHERE id = :id");
+        $sql->bindValue(':id', $user->getId());
+        $sql->bindValue(':grouplvl', $user->getGrouplvl());
+        $sql->execute();
+    }
+
+    public function updatePassword(User $user)
+    {
+        $sql = $this->pdo->prepare("UPDATE users SET password = :password WHERE id = :id");
+        $sql->bindValue(':id', $user->getId());
+        $sql->bindValue(':password', $user->getPassword());
+        $sql->execute();
     }
 
     public function addUser(User $user)

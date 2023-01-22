@@ -72,6 +72,15 @@ class Auth
         }
     }
 
+    public function checkPass($password, $dbhash): bool
+    {
+        if (password_verify($password, $dbhash)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function registerUser(User $user)
     {
         $newUserDao = new UserDaoMysql($this->connection);
@@ -91,6 +100,12 @@ class Auth
         $user->setToken($token);
 
         $newUserDao->addUser($user);
+    }
+
+    public function generateHash($password)
+    {
+        $hash = password_hash($password, PASSWORD_DEFAULT);
+        return $hash;
     }
 
     public function accessView(int $userGroupId, array $accessNumbers): bool

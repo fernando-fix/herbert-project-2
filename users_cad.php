@@ -14,7 +14,7 @@ $auth = new Auth;
 <?php
 
 $loggedUser = $auth->isLogged();
-$auth->accessRedirect($loggedUser->getId(), [4], "users.php");
+$auth->accessRedirect($loggedUser->getGrouplvl(), [4], "users.php");
 
 ?>
 

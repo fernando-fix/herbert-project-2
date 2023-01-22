@@ -8,7 +8,7 @@ require "vendor/autoload.php";
 $auth = new Auth;
 
 $loggedUser = $auth->isLogged();
-$auth->accessRedirect($loggedUser->getId(), [3, 4], "products.php");
+$auth->accessRedirect($loggedUser->getGrouplvl(), [3, 4], "products.php");
 
 $newSectorDao = new SectorDaoMysql($auth->connection);
 $sectors = $newSectorDao->findAll();

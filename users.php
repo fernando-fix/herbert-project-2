@@ -41,8 +41,8 @@ require "partials/aside.php";
                         <td><?= $item['email']; ?></td>
                         <td><?= $item['grouplvl']; ?></td>
                         <td class="tableAction">
-                            <a href="#"><i class="bi bi-pencil"></i></a>
-                            <a href="#"><i class="bi bi-trash-fill"></i></a>
+                            <a href="<?= $auth->base; ?>/users_edit.php?id=<?= $item['id']; ?>"><i class="bi bi-pencil"></i></a>
+                            <a href="<?= $auth->base; ?>/users_del_action.php"><i class="bi bi-trash-fill"></i></a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -52,7 +52,7 @@ require "partials/aside.php";
     </table>
     <!-- table end -->
     <div class="container-fluid p-0 mt-2">
-        <div class="btn btn-outline-primary" onclick="pageLoad('<?= $auth->base; ?>/users_cad.php')">Adicionar usuário</div>
+        <a class="btn btn-outline-primary" href="<?= $auth->base; ?>/users_cad.php">Adicionar usuário</a>
     </div>
 </div>
 
