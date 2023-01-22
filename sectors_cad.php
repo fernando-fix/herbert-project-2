@@ -6,7 +6,7 @@ require "vendor/autoload.php";
 
 $auth = new Auth;
 $loggedUser = $auth->isLogged();
-$auth->accessRedirect($loggedUser->getId(), [1, 2, 3, 4], "sectors.php");
+$auth->accessRedirect($loggedUser->getGrouplvl(), [1, 2, 3, 4], "sectors.php");
 
 ?>
 

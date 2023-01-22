@@ -71,11 +71,21 @@ class SectorDaoMysql implements SectorDao
         return $sector;
     }
 
-    public function updateSector(Sector $s) {
+    public function updateSector(Sector $s)
+    {
         $sql = $this->pdo->prepare("UPDATE sectors SET name = :name, responsible = :responsible WHERE id = :id");
         $sql->bindValue(':id', $s->getId());
         $sql->bindValue(':name', $s->getName());
         $sql->bindValue(':responsible', $s->getResponsible());
         $sql->execute();
+    }
+
+    public function delete($id)
+    {
+        if ($id) {
+            $sql = $this->pdo->prepare("DELETE FROM sectors WHERE id = :id");
+            $sql->bindValue(':id', $id);
+            $sql->execute();
+        }
     }
 }

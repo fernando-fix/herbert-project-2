@@ -43,7 +43,21 @@ class ProductDaoMysql implements ProductDao
         if ($sql->rowCount() > 0) {
             $data = $sql->fetchAll(PDO::FETCH_ASSOC);
         }
-        
+
+        return $data;
+    }
+
+    public function findProductsBySectorId($id)
+    {
+        $data = [];
+
+        if ($id) {
+            $sql = $this->pdo->prepare("SELECT * FROM products WHERE id_sector = :id");
+            $sql->bindValue(':id', $id);
+            $sql->execute();
+            $data = $sql->fetchAll(PDO::FETCH_ASSOC);
+        }
+
         return $data;
     }
 

@@ -44,7 +44,7 @@ $auth = new Auth;
                         <td><?= $item['responsible']; ?></td>
                         <td class="tableAction">
                             <a href="<?= $auth->base; ?>/sectors_edit.php?id=<?= $item['id']; ?>" title="editar"><i class="bi bi-pencil"></i></a>
-                            <a href="#" title="deletar"><i class="bi bi-trash-fill"></i></a>
+                            <a href="<?= $auth->base; ?>/sectors_del_action.php?id=<?= $item['id']; ?>" title="deletar" onclick="return confirm('Atenção! Esta ação é ireversível, deseja deletar o setor: <?= $item['name'] ?>?')"><i class="bi bi-trash-fill"></i></a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

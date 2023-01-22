@@ -58,7 +58,10 @@ $newGrouplvl = new GrouplvlDaoMysql($auth->connection);
     <?php endif; ?>
 
     <header class="d-flex align-items-center">
-        <div class="text-white h4">
-            Grupo: <?= $newGrouplvl->findById($loggedUser->getGrouplvl()); ?>
+        <div class="text-white">
+            <strong class="ms-3">Usuário:</strong>
+            <?= $loggedUser->getName(); ?>
+            <strong class="ms-3">Grupo:</strong>
+            <?= $newGrouplvl->findById($loggedUser->getGrouplvl()); ?>
         </div>
     </header>
