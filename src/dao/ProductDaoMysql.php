@@ -61,6 +61,20 @@ class ProductDaoMysql implements ProductDao
         return $data;
     }
 
+    public function findProductsByUserId($id)
+    {
+        $data = [];
+
+        if ($id) {
+            $sql = $this->pdo->prepare("SELECT * FROM products WHERE id_resp_mov = :id");
+            $sql->bindValue(':id', $id);
+            $sql->execute();
+            $data = $sql->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+        return $data;
+    }
+
     public function addProduct(Product $p)
     {
         if ($p) {

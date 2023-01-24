@@ -42,7 +42,7 @@ require "partials/aside.php";
                         <td><?= $item['grouplvl']; ?></td>
                         <td class="tableAction">
                             <a href="<?= $auth->base; ?>/users_edit.php?id=<?= $item['id']; ?>"><i class="bi bi-pencil"></i></a>
-                            <a href="<?= $auth->base; ?>/users_del_action.php"><i class="bi bi-trash-fill"></i></a>
+                            <a onclick="return confirm('Deseja realmente deletar o usuário <?= $item['name'] ?>, esta ação é irreversível!')" href="<?= $auth->base; ?>/users_del_action.php?id=<?= $item['id']; ?>"><i class="bi bi-trash-fill"></i></a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

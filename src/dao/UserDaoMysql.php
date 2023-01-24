@@ -163,4 +163,10 @@ class UserDaoMysql implements UserDao
         $sql->bindValue(':avatar', $user->getAvatar());
         $sql->execute();
     }
+
+    public function delete($id) {
+        $sql = $this->pdo->prepare("DELETE FROM users WHERE id = :id");
+        $sql->bindValue(":id",$id);
+        $sql->execute();
+    }
 }

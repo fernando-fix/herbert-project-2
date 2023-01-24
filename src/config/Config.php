@@ -32,7 +32,7 @@ class Config
             $this->db_pass = "";
         } else  {
             //modo de produção
-            $this->base = "https://app4test.site/";
+            $this->base = "https://app4test.site";
             
             $this->db_host = "localhost";
             $this->db_name = "u267642392_ativos";
