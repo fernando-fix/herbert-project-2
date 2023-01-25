@@ -47,6 +47,21 @@ class ProductDaoMysql implements ProductDao
         return $data;
     }
 
+    public function findById($id): array
+    {
+        $data = [];
+
+        $sql = $this->pdo->prepare("SELECT * FROM products WHERE id = :id");
+        $sql->bindValue(":id", $id);
+        $sql->execute();
+
+        if ($sql->rowCount() > 0) {
+            $data = $sql->fetch(PDO::FETCH_ASSOC);
+        }
+
+        return $data;
+    }
+
     public function findProductsBySectorId($id)
     {
         $data = [];
@@ -90,5 +105,14 @@ class ProductDaoMysql implements ProductDao
 
             $sql->execute();
         }
+    }
+
+    public function delete($id): bool
+    {
+        $sql = $this->pdo->prepare("DELETE FROM products WHERE id = :id");
+        $sql->bindValue(":id", $id);
+        $sql->execute();
+
+        return true;
     }
 }

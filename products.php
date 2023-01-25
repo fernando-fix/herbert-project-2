@@ -45,9 +45,9 @@ $products = $newProductDao->findAll();
                     <td><?= date("d/m/Y H:i:s", strtotime($product['last_mov'])); ?></td>
                     <td><?= $product['resp_mov_name']; ?></td>
                     <td class="tableAction">
-                        <a href="#"><i class="bi bi-pencil"></i></a>
-                        <a href="#"><i class="bi bi-arrows-move"></i></a>
-                        <a href="#"><i class="bi bi-trash-fill"></i></a>
+                        <a href="<?= $auth->base; ?>/products_edit.php?id=<?= $product['id']; ?>"><i class="bi bi-pencil"></i></a>
+                        <a href="<?= $auth->base; ?>/products_move.php?id=<?= $product['id']; ?>"><i class="bi bi-arrows-move"></i></a>
+                        <a onclick="return confirm('Deseja realmente deletar o produto <?= $product['name'] ?>, esta ação é irreversível!')" href="<?= $auth->base; ?>/products_del_action.php?id=<?= $product['id']; ?>"><i class="bi bi-trash-fill"></i></a>
                     </td>
                 </tr>
             <?php endforeach; ?>
@@ -55,7 +55,7 @@ $products = $newProductDao->findAll();
     </table>
     <!-- table end -->
     <div class="container-fluid p-0 mt-2">
-        <div class="btn btn-outline-primary" onclick="pageLoad('<?= $auth->base; ?>/products_cad.php')">Adicionar produto</div>
+        <a class="btn btn-outline-primary" href="<?= $auth->base; ?>/products_cad.php">Adicionar produto</a>
     </div>
 </div>
 
