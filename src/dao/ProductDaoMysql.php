@@ -107,6 +107,24 @@ class ProductDaoMysql implements ProductDao
         }
     }
 
+    public function updatePatrimony(Product $p): bool
+    {
+        $sql = $this->pdo->prepare(
+            "UPDATE products SET
+            patrimony = :patrimony,
+            last_mov = :last_mov,
+            id_resp_mov = :id_resp_mov
+            WHERE id = :id"
+        );
+        $sql->bindValue(':patrimony', $p->getPatrimony());
+        $sql->bindValue(':last_mov', $p->getLastMov());
+        $sql->bindValue(':id_resp_mov', $p->getIdRespMov());
+        $sql->bindValue(':id', $p->getId());
+        $sql->execute();
+
+        return true;
+    }
+
     public function delete($id): bool
     {
         $sql = $this->pdo->prepare("DELETE FROM products WHERE id = :id");

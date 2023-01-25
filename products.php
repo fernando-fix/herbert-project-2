@@ -46,7 +46,6 @@ $products = $newProductDao->findAll();
                     <td><?= $product['resp_mov_name']; ?></td>
                     <td class="tableAction">
                         <a href="<?= $auth->base; ?>/products_edit.php?id=<?= $product['id']; ?>"><i class="bi bi-pencil"></i></a>
-                        <a href="<?= $auth->base; ?>/products_move.php?id=<?= $product['id']; ?>"><i class="bi bi-arrows-move"></i></a>
                         <a onclick="return confirm('Deseja realmente deletar o produto <?= $product['name'] ?>, esta ação é irreversível!')" href="<?= $auth->base; ?>/products_del_action.php?id=<?= $product['id']; ?>"><i class="bi bi-trash-fill"></i></a>
                     </td>
                 </tr>
