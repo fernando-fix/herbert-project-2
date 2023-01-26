@@ -125,6 +125,60 @@ class ProductDaoMysql implements ProductDao
         return true;
     }
 
+    public function updateProduct(Product $p): bool
+    {
+        $sql = $this->pdo->prepare(
+            "UPDATE products SET
+            name = :name,
+            last_mov = :last_mov,
+            id_resp_mov = :id_resp_mov
+            WHERE id = :id"
+        );
+        $sql->bindValue(':name', $p->getName());
+        $sql->bindValue(':last_mov', $p->getLastMov());
+        $sql->bindValue(':id_resp_mov', $p->getIdRespMov());
+        $sql->bindValue(':id', $p->getId());
+        $sql->execute();
+
+        return true;
+    }
+
+    public function updateDescription(Product $p): bool
+    {
+        $sql = $this->pdo->prepare(
+            "UPDATE products SET
+            description = :description,
+            last_mov = :last_mov,
+            id_resp_mov = :id_resp_mov
+            WHERE id = :id"
+        );
+        $sql->bindValue(':description', $p->getDescription());
+        $sql->bindValue(':last_mov', $p->getLastMov());
+        $sql->bindValue(':id_resp_mov', $p->getIdRespMov());
+        $sql->bindValue(':id', $p->getId());
+        $sql->execute();
+
+        return true;
+    }
+
+    public function updateSectorId(Product $p): bool
+    {
+        $sql = $this->pdo->prepare(
+            "UPDATE products SET
+            id_sector = :id_sector,
+            last_mov = :last_mov,
+            id_resp_mov = :id_resp_mov
+            WHERE id = :id"
+        );
+        $sql->bindValue(':id_sector', $p->getIdSector());
+        $sql->bindValue(':last_mov', $p->getLastMov());
+        $sql->bindValue(':id_resp_mov', $p->getIdRespMov());
+        $sql->bindValue(':id', $p->getId());
+        $sql->execute();
+
+        return true;
+    }
+
     public function delete($id): bool
     {
         $sql = $this->pdo->prepare("DELETE FROM products WHERE id = :id");
