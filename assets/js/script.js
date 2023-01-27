@@ -1,7 +1,3 @@
-function pageLoad(page) {
-    open(page, "_self");
-}
-
 function openMenuAside() {
     if (document.querySelector("aside").classList.contains("aside-max-width")) {
         document.querySelector("aside").classList.remove("aside-max-width");

@@ -53,7 +53,7 @@ $auth = new Auth;
     </table>
     <!-- table end -->
     <div class="container-fluid p-0 mt-2">
-        <div class="btn btn-outline-primary" onclick="pageLoad('<?= $auth->base; ?>/sectors_cad.php')">Adicionar setor</div>
+        <a class="btn btn-outline-primary" href="<?= $auth->base; ?>/sectors_cad.php">Adicionar setor</a>
     </div>
 </div>
 
