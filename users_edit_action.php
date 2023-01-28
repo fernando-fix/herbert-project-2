@@ -95,6 +95,6 @@ if ($id && $name && $email && $grouplvl) {
     }
 } else {
     $_SESSION['alert'] = "Preencha todos os dados para editar o usuário";
-    header("location: " . $auth->base . "/users_cad.php");
+    header("location: " . $auth->base . "/users.php");
     exit;
 }

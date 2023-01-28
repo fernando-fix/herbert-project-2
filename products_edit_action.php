@@ -88,6 +88,6 @@ if ($id && $patrimony && $product && $description && $sector_id) {
     }
 }
 
-$_SESSION['alert'] = "Preencha o cadastro completo";
+$_SESSION['alert'] = "Preencha todos os dados para editar o produto";
 header("Location: " . $auth->base . "/products_edit.php?id=" . $id);
 exit;

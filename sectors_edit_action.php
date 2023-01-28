@@ -17,6 +17,8 @@ $responsible = trim(filter_input(INPUT_POST, "responsible"));
 
 if ($id && $name && $responsible) {
 
+    $altered = false;
+
     $newSector = new Sector;
     $newSector->setId($id);
     $newSector->setName($name);
@@ -26,7 +28,10 @@ if ($id && $name && $responsible) {
     $newLogDao = new LogDaoMysql($auth->connection);
 
     //verificar se já tem no banco e se não é o mesmo
-    $findSector = $newSectorDao->findSector($name);
+    $findSector = $newSectorDao->findById($id);
+
+
+    //verifica se ja tem o setor
     if (count($findSector) > 0) {
         if ($findSector['id'] != $id) {
             $_SESSION['alert'] = "Já existe um setor cadastrado com este nome!";
@@ -35,15 +40,34 @@ if ($id && $name && $responsible) {
         }
     }
 
-    $newSectorDao->updateSector($newSector);
-    $newLogDao->registerLog($loggedUser->getId(), "Edição de setor", "Setor alterado para: " . $newSector->getName() . " - Responsável: " . $newSector->getResponsible(), $datetime);
+    //Alteração do nome
+    if ($findSector['name'] != $name) {
+        $newSectorDao->updateName($newSector);
+        $newLogDao->registerLog($loggedUser->getId(), "Edição de setor", "Nome do setor alterado de " . $findSector['name'] . " para " . $newSector->getName(), $datetime);
+        $altered = true;
+    }
 
-    $_SESSION['success'] = "Setor alterado com sucesso";
-    header("location: " . $auth->base . "/sectors.php");
-    exit;
+    //Alteração do responsável
+    if ($findSector['responsible'] != $responsible) {
+        $newSectorDao->updateResponsible($newSector);
+        $newLogDao->registerLog($loggedUser->getId(), "Edição de setor", "Responsável do setor alterado de " . $findSector['responsible'] . " para " . $newSector->getResponsible(), $datetime);
+        $altered = true;
+    }
+
+    //caso haja alguma alteração avisar na tela
+    if ($altered == true) {
+        $_SESSION['success'] = "Setor alterado com sucesso";
+        header("location: " . $auth->base . "/sectors.php");
+        exit;
+    } else {
+
+        $_SESSION['alert'] = "Nenhum alteração foi efetuada";
+        header("location: " . $auth->base . "/sectors_edit.php?id=" . $id);
+        exit;
+    }
 } else {
     //erro ao receber dado
-    $_SESSION['alert'] = "Dados informados incorretos";
-    header("location: " . $auth->base . "/sectors_cad.php");
+    $_SESSION['alert'] = "Preencha todos os dados para editar o setor";
+    header("location: " . $auth->base . "/sectors.php");
     exit;
 }
