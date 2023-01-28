@@ -3,7 +3,7 @@
 use src\dao\SectorDaoMysql;
 use src\models\Auth;
 
-require_once"vendor/autoload.php";
+require_once "vendor/autoload.php";
 
 $auth = new Auth;
 
@@ -15,8 +15,8 @@ $sectors = $newSectorDao->findAll();
 
 ?>
 
-<?php require_once"partials/header.php"; ?>
-<?php require_once"partials/aside.php" ?>
+<?php require_once "partials/header.php"; ?>
+<?php require_once "partials/aside.php" ?>
 
 <div class="container-fluid my-4 px-5">
     <h2>Cadastro de produtos</h2>
@@ -26,22 +26,22 @@ $sectors = $newSectorDao->findAll();
         <form action="products_cad_action.php" method="post">
             <div class="mb-3">
                 <label for="patrimony" class="form-label">Nº do ativo</label>
-                <input type="number" class="form-control" id="patrimony" name="patrimony" placeholder="Ex: 3254">
+                <input type="number" class="form-control" id="patrimony" name="patrimony" placeholder="Ex: 3254" required>
             </div>
             <div class="mb-3">
                 <label for="product_name" class="form-label">Nome do produto</label>
-                <input type="text" class="form-control" id="product_name" name="product_name" placeholder="Ex: Computador Dell">
+                <input type="text" class="form-control" id="product_name" name="product_name" placeholder="Ex: Computador Dell" required>
             </div>
 
             <div class="mb-3">
                 <label for="product_descr" class="form-label">Descrição do produto</label>
-                <textarea class="form-control" id="product_descr" name="product_descr" rows="3"></textarea>
+                <textarea class="form-control" id="product_descr" name="product_descr" rows="3" required></textarea>
             </div>
 
             <div class="mb-3">
                 <label for="nome_setor" class="form-label">Setor</label>
-                <select class="form-select" aria-label="Default select example" id="sector_id" name="sector_id">
-                    <option selected disabled>Clique para selecionar</option>
+                <select class="form-select" aria-label="Default select example" id="sector_id" name="sector_id" required>
+                    <option value="" selected disabled>Clique para selecionar</option>
 
                     <?php foreach ($sectors as $sector) : ?>
                         <option value="<?= $sector['id']; ?>"><?= $sector['name']; ?></option>
@@ -54,4 +54,4 @@ $sectors = $newSectorDao->findAll();
     </div>
 </div>
 
-<?php require_once"partials/footer.php"; ?>
+<?php require_once "partials/footer.php"; ?>
