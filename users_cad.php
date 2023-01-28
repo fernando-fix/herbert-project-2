@@ -5,16 +5,11 @@ use src\models\Auth;
 require_once "vendor/autoload.php";
 
 $auth = new Auth;
-
-?>
-
-<?php require_once "partials/header.php"; ?>
-<?php require_once "partials/aside.php" ?>
-
-<?php
-
 $loggedUser = $auth->isLogged();
 $auth->accessRedirect($loggedUser->getGrouplvl(), [4], "users.php");
+
+require_once "partials/header.php";
+require_once "partials/aside.php";
 
 ?>
 
