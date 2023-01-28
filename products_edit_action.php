@@ -10,7 +10,7 @@ require_once "vendor/autoload.php";
 
 $auth = new Auth();
 $loggedUser = $auth->isLogged();
-$auth->accessRedirect($loggedUser->getGrouplvl(), [4], "products.php");
+$auth->accessRedirect($loggedUser->getGrouplvl(), [2, 3, 4], "products.php");
 
 $id = filter_input(INPUT_POST, "id");
 $patrimony = filter_input(INPUT_POST, "patrimony");

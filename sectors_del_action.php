@@ -8,10 +8,11 @@ use src\models\Auth;
 require_once "vendor/autoload.php";
 
 $id = filter_input(INPUT_GET, "id");
+$auth = new Auth();
+$loggedUser = $auth->isLogged();
+$auth->accessRedirect($loggedUser->getGrouplvl(), [2, 3, 4], "sectors.php");
 
 if ($id) {
-    $auth = new Auth();
-    $loggedUser = $auth->isLogged();
     $newProductDao = new ProductDaoMysql($auth->connection);
 
     if (count($newProductDao->findProductsBySectorId($id)) > 0) {

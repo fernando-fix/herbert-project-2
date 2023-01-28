@@ -9,12 +9,12 @@ $auth = new Auth;
 $newLogDao = new LogDaoMysql($auth->connection);
 
 $loggedUser = $auth->isLogged();
-$auth->accessRedirect($loggedUser->getGrouplvl(), [1, 2, 3, 4]);
+$auth->accessRedirect($loggedUser->getGrouplvl(), [4]);
 
 $logs = $newLogDao->findAll();
 
-require_once"partials/header.php";
-require_once"partials/aside.php"
+require_once "partials/header.php";
+require_once "partials/aside.php"
 
 ?>
 
@@ -47,7 +47,7 @@ require_once"partials/aside.php"
 </div>
 
 
-<?php require_once"partials/footer.php"; ?>
+<?php require_once "partials/footer.php"; ?>
 
 <script>
     $(document).ready(function() {

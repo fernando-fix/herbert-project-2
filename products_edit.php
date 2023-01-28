@@ -4,12 +4,12 @@ use src\dao\ProductDaoMysql;
 use src\dao\SectorDaoMysql;
 use src\models\Auth;
 
-require_once"vendor/autoload.php";
+require_once "vendor/autoload.php";
 
 $auth = new Auth;
 
 $loggedUser = $auth->isLogged();
-$auth->accessRedirect($loggedUser->getGrouplvl(), [3, 4], "products.php");
+$auth->accessRedirect($loggedUser->getGrouplvl(), [2, 3, 4], "products.php");
 
 $id = filter_input(INPUT_GET, "id");
 
@@ -30,8 +30,8 @@ $sector = $newSectorDao->findById($product['id_sector']);
 
 ?>
 
-<?php require_once"partials/header.php"; ?>
-<?php require_once"partials/aside.php" ?>
+<?php require_once "partials/header.php"; ?>
+<?php require_once "partials/aside.php" ?>
 
 <div class="container-fluid my-4 px-5">
     <h2>Edição de produtos</h2>
@@ -82,4 +82,4 @@ $sector = $newSectorDao->findById($product['id_sector']);
     </div>
 </div>
 
-<?php require_once"partials/footer.php"; ?>
+<?php require_once "partials/footer.php"; ?>

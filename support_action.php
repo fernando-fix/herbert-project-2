@@ -2,13 +2,13 @@
 
 use src\models\Auth;
 
-require_once"vendor/autoload.php";
+require_once "vendor/autoload.php";
 
 $auth = new Auth;
 $base = $auth->base;
 
 $loggedUser = $auth->isLogged();
-$auth->accessRedirect($loggedUser->getGrouplvl(), [4], "users.php");
+$auth->accessRedirect($loggedUser->getGrouplvl(), [2, 3, 4], "users.php");
 
 $subject = filter_input(INPUT_POST, 'subject');
 $description = filter_input(INPUT_POST, 'description');

@@ -10,6 +10,8 @@ require_once "vendor/autoload.php";
 $auth = new Auth();
 $loggedUser = $auth->isLogged();
 
+$auth->accessRedirect($loggedUser->getGrouplvl(), [4], "products.php");
+
 $id = filter_input(INPUT_GET, "id");
 
 if ($id) {
