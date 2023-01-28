@@ -90,6 +90,20 @@ class ProductDaoMysql implements ProductDao
         return $data;
     }
 
+    public function findProductsByPatrimony($patrimony)
+    {
+        $data = [];
+
+        if ($patrimony) {
+            $sql = $this->pdo->prepare("SELECT * FROM products WHERE patrimony = :patrimony");
+            $sql->bindValue(':patrimony', $patrimony);
+            $sql->execute();
+            $data = $sql->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+        return $data;
+    }
+
     public function addProduct(Product $p)
     {
         if ($p) {

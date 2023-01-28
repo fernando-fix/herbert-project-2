@@ -29,7 +29,7 @@ $products = $newProductDao->findAll();
                 <th>Descrição</th>
                 <th>Setor</th>
                 <th>Resp. Setor</th>
-                <th>Movido em:</th>
+                <th>Alterado em:</th>
                 <th>Última ação</th>
                 <th>Ações</th>
             </tr>

@@ -27,6 +27,12 @@ if ($id && $patrimony && $product && $description && $sector_id) {
     $productBefore = $newProductDao->findById($id);
     $datetime = date("Y-m-d H:i:s");
 
+    if (count($newProductDao->findProductsByPatrimony($patrimony)) > 0) {
+        $_SESSION['alert'] = "Ativo já cadastrado no sistema!";
+        header("Location: " . $auth->base . "/products_edit.php?id=" . $id);
+        exit;
+    }
+
     $newProduct = new Product;
     $newProduct->setId($id);
     $newProduct->setPatrimony($patrimony);

@@ -22,6 +22,12 @@ if ($patrimony && $product_name && $product_descr && $sector_id) {
     $newProductDao = new ProductDaoMysql($auth->connection);
     $newLogDao = new LogDaoMysql($auth->connection);
 
+    if (count($newProductDao->findProductsByPatrimony($patrimony)) > 0) {
+        $_SESSION['alert'] = "Ativo já cadastrado no sistema!";
+        header("location: " . $auth->base . "/products_cad.php");
+        exit;
+    }
+
     $newProduct->setPatrimony($patrimony);
     $newProduct->setName($product_name);
     $newProduct->setDescription($product_descr);
