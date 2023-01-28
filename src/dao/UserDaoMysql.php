@@ -170,3 +170,4 @@ class UserDaoMysql implements UserDao
         $sql->execute();
     }
 }
+

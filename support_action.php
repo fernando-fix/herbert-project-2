@@ -8,7 +8,6 @@ $auth = new Auth;
 $base = $auth->base;
 
 $loggedUser = $auth->isLogged();
-$auth->accessRedirect($loggedUser->getGrouplvl(), [2, 3, 4], "users.php");
 
 $subject = filter_input(INPUT_POST, 'subject');
 $description = filter_input(INPUT_POST, 'description');

@@ -4,7 +4,7 @@ use src\dao\GrouplvlDaoMysql;
 use src\dao\UserDaoMysql;
 use src\models\Auth;
 
-require_once"vendor/autoload.php";
+require_once "vendor/autoload.php";
 
 $auth = new Auth;
 
@@ -32,8 +32,8 @@ if ($userId) {
 
 ?>
 
-<?php require_once"partials/header.php"; ?>
-<?php require_once"partials/aside.php" ?>
+<?php require_once "partials/header.php"; ?>
+<?php require_once "partials/aside.php" ?>
 
 <div class="container-fluid my-4 px-5">
     <h2>Editar usuário</h2>
@@ -76,4 +76,4 @@ if ($userId) {
     </div>
 </div>
 
-<?php require_once"partials/footer.php"; ?>
+<?php require_once "partials/footer.php"; ?>

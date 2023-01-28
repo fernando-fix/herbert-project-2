@@ -6,7 +6,7 @@ use src\core\Config;
 use src\dao\LogDaoMysql;
 use src\dao\UserDaoMysql;
 
-require_once"src/config/Config.php";
+require_once "src/config/Config.php";
 
 class Auth
 {

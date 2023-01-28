@@ -7,7 +7,7 @@ require_once "vendor/autoload.php";
 $auth = new Auth;
 
 $loggedUser = $auth->isLogged();
-$auth->accessRedirect($loggedUser->getGrouplvl(), [2, 3, 4], "users.php");
+$auth->accessRedirect($loggedUser->getGrouplvl(), [1, 2, 3, 4], "users.php");
 
 ?>
 

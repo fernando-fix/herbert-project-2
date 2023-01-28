@@ -3,7 +3,7 @@
 use src\dao\UserDaoMysql;
 use src\models\Auth;
 
-require_once"vendor/autoload.php";
+require_once "vendor/autoload.php";
 
 $auth = new Auth;
 $newUserDao = new UserDaoMysql($auth->connection);
@@ -13,8 +13,8 @@ $auth->accessRedirect($loggedUser->getGrouplvl(), [2, 3, 4]);
 
 $data = $newUserDao->findAll();
 
-require_once"partials/header.php";
-require_once"partials/aside.php";
+require_once "partials/header.php";
+require_once "partials/aside.php";
 
 ?>
 
@@ -57,4 +57,4 @@ require_once"partials/aside.php";
 </div>
 
 
-<?php require_once"partials/footer.php"; ?>
+<?php require_once "partials/footer.php"; ?>

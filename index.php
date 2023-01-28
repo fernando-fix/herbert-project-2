@@ -14,8 +14,8 @@ $auth->isLogged();
 $userDao = new UserDaoMysql($auth->connection);
 ?>
 
-<?php require_once"partials/header.php"; ?>
-<?php require_once"partials/aside.php"; ?>
+<?php require_once "partials/header.php"; ?>
+<?php require_once "partials/aside.php"; ?>
 
 <div class="container-fluid my-4 px-5">
     <h2>Página inicial</h2>
@@ -23,4 +23,4 @@ $userDao = new UserDaoMysql($auth->connection);
     <!-- conteúdo -->
 
 </div>
-<?php require_once"partials/footer.php"; ?>
+<?php require_once "partials/footer.php"; ?>
