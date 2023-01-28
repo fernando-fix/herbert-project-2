@@ -13,7 +13,7 @@ class Config
     public $base;
     public $connection;
 
-    public $mode = "production";
+    public $mode = "developer";
 
     private $db_host;
     private $db_name;

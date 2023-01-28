@@ -13,8 +13,8 @@ $auth->accessRedirect($loggedUser->getGrouplvl(), [1, 2, 3, 4]);
 
 $logs = $newLogDao->findAll();
 
-require "partials/header.php";
-require "partials/aside.php"
+require_once"partials/header.php";
+require_once"partials/aside.php"
 
 ?>
 
@@ -47,7 +47,7 @@ require "partials/aside.php"
 </div>
 
 
-<?php require "partials/footer.php"; ?>
+<?php require_once"partials/footer.php"; ?>
 
 <script>
     $(document).ready(function() {

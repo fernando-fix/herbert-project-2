@@ -2,7 +2,7 @@
 
 use src\models\Auth;
 
-require "vendor/autoload.php";
+require_once"vendor/autoload.php";
 
 $auth = new Auth;
 $base = $auth->base;

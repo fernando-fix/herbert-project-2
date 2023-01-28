@@ -3,14 +3,14 @@
 use src\dao\SectorDaoMysql;
 use src\models\Auth;
 
-require "vendor/autoload.php";
+require_once"vendor/autoload.php";
 
 $auth = new Auth;
 
 ?>
 
-<?php require "partials/header.php"; ?>
-<?php require "partials/aside.php" ?>
+<?php require_once"partials/header.php"; ?>
+<?php require_once"partials/aside.php" ?>
 
 <div class="container-fluid my-4 px-5">
     <h2>Consulta de setores</h2>
@@ -57,4 +57,4 @@ $auth = new Auth;
     </div>
 </div>
 
-<?php require "partials/footer.php"; ?>
+<?php require_once"partials/footer.php"; ?>

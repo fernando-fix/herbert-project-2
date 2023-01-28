@@ -2,7 +2,7 @@
 
 use src\models\Auth;
 
-require "vendor/autoload.php";
+require_once"vendor/autoload.php";
 
 $auth = new Auth;
 $loggedUser = $auth->isLogged();
@@ -10,8 +10,8 @@ $auth->accessRedirect($loggedUser->getGrouplvl(), [1, 2, 3, 4], "sectors.php");
 
 ?>
 
-<?php require "partials/header.php"; ?>
-<?php require "partials/aside.php" ?>
+<?php require_once"partials/header.php"; ?>
+<?php require_once"partials/aside.php" ?>
 
 <div class="container-fluid my-4 px-5">
     <h2>Cadastro de setores</h2>
@@ -32,4 +32,4 @@ $auth->accessRedirect($loggedUser->getGrouplvl(), [1, 2, 3, 4], "sectors.php");
     </div>
 </div>
 
-<?php require "partials/footer.php"; ?>
+<?php require_once"partials/footer.php"; ?>

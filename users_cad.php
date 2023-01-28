@@ -2,14 +2,14 @@
 
 use src\models\Auth;
 
-require "vendor/autoload.php";
+require_once"vendor/autoload.php";
 
 $auth = new Auth;
 
 ?>
 
-<?php require "partials/header.php"; ?>
-<?php require "partials/aside.php" ?>
+<?php require_once"partials/header.php"; ?>
+<?php require_once"partials/aside.php" ?>
 
 <?php
 
@@ -57,4 +57,4 @@ $auth->accessRedirect($loggedUser->getGrouplvl(), [4], "users.php");
     </div>
 </div>
 
-<?php require "partials/footer.php"; ?>
+<?php require_once"partials/footer.php"; ?>

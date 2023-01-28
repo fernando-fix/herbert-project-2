@@ -4,7 +4,7 @@ use src\dao\ProductDaoMysql;
 use src\dao\SectorDaoMysql;
 use src\models\Auth;
 
-require "vendor/autoload.php";
+require_once"vendor/autoload.php";
 
 $auth = new Auth;
 
@@ -30,8 +30,8 @@ $sector = $newSectorDao->findById($product['id_sector']);
 
 ?>
 
-<?php require "partials/header.php"; ?>
-<?php require "partials/aside.php" ?>
+<?php require_once"partials/header.php"; ?>
+<?php require_once"partials/aside.php" ?>
 
 <div class="container-fluid my-4 px-5">
     <h2>Edição de produtos</h2>
@@ -82,4 +82,4 @@ $sector = $newSectorDao->findById($product['id_sector']);
     </div>
 </div>
 
-<?php require "partials/footer.php"; ?>
+<?php require_once"partials/footer.php"; ?>
