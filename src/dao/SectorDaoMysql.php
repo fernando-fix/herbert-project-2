@@ -17,20 +17,18 @@ class SectorDaoMysql implements SectorDao
     {
         $this->pdo = $driver;
     }
-    public function findSector(string $sector): bool
+    public function findSector($sector)
     {
-        if (!empty($sector)) {
+        $data = [];
 
-            $sql = $this->pdo->prepare("SELECT * FROM users WHERE name = :name");
-            $sql->bindValue(':name', $sector);
-            $sql->execute();
-
-            if ($sql->rowCount() > 0) {
-
-                return true;
-            }
-            return false;
+        $sql = $this->pdo->prepare("SELECT * FROM sectors WHERE name = :name");
+        $sql->bindValue(':name', $sector);
+        $sql->execute();
+        if ($sql->rowCount() > 0) {
+            $data = $sql->fetch(PDO::FETCH_ASSOC);
         }
+
+        return $data;
     }
 
     public function findAll(): array
