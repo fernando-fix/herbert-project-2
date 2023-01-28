@@ -9,7 +9,6 @@ require_once "vendor/autoload.php";
 $auth = new Auth;
 
 $loggedUser = $auth->isLogged();
-$auth->accessRedirect($loggedUser->getGrouplvl(), [4], "users.php");
 
 $userId = filter_input(INPUT_GET, "id");
 if ($userId) {
@@ -19,10 +18,16 @@ if ($userId) {
 
     $grouplvlDao = new GrouplvlDaoMysql($auth->connection);
 
+    //verificar se encontrou usuário para editar
     if (count($user) < 1) {
         $_SESSION['alert'] = "Usuário não encontrado!";
         header("Location: " . $auth->base . "/users.php");
         exit;
+    }
+
+    //verificar se o usuário é o mesmo que está logado
+    if ($user['id'] != $loggedUser->getId()) {
+        $auth->accessRedirect($loggedUser->getGrouplvl(), [4], "users.php");
     }
 } else {
     $_SESSION['alert'] = "Sem id ue!";

@@ -10,7 +10,7 @@ require_once "vendor/autoload.php";
 $id = filter_input(INPUT_GET, "id");
 $auth = new Auth();
 $loggedUser = $auth->isLogged();
-$auth->accessRedirect($loggedUser->getGrouplvl(), [2, 3, 4], "sectors.php");
+$auth->accessRedirect($loggedUser->getGrouplvl(), [4], "sectors.php");
 
 if ($id) {
     $newProductDao = new ProductDaoMysql($auth->connection);
