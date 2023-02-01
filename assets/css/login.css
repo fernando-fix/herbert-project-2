@@ -288,3 +288,8 @@ header {
   color: #131212;
   box-sizing: border-box;
 }
+
+footer {
+  position: absolute;
+  bottom: 0;
+}

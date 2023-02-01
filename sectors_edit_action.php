@@ -42,6 +42,13 @@ if ($id && $name && $responsible) {
 
     //Alteração do nome
     if ($findSector['name'] != $name) {
+
+        if (count($newSectorDao->findSector($name))) {
+            $_SESSION['alert'] = "Não pode alterar o nome para um que já existe!";
+            header("location: " . $auth->base . "/sectors_edit.php?id=" . $id);
+            exit;
+        }
+
         $newSectorDao->updateName($newSector);
         $newLogDao->registerLog($loggedUser->getId(), "Edição de setor", "Nome do setor alterado de " . $findSector['name'] . " para " . $newSector->getName(), $datetime);
         $altered = true;

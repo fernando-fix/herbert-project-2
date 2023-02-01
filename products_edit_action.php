@@ -46,6 +46,12 @@ if ($id && $patrimony && $product && $description && $sector_id) {
 
     //alteração de patrimônio
     if ($productBefore['patrimony'] != $patrimony) {
+        //verifica se o novo patrimônio não existe
+        if (count($newProductDao->findProductsByPatrimony($patrimony)) > 0) {
+            $_SESSION['alert'] = "Não é possível alterar o patrimônio para um que já existe!";
+            header("location: " . $auth->base . "/products_edit.php?id=" . $id);
+            exit;
+        }
         $newProductDao->updatePatrimony($newProduct);
         $newLogDao->registerLog($loggedUser->getId(), "Troca de patrimônio", "Patrimônio do produto foi alterado de " . $productBefore['patrimony'] . " para " . $patrimony, $datetime);
         $alterado = true;
