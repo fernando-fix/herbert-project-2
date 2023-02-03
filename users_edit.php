@@ -62,10 +62,15 @@ if ($userId) {
                 <label for="grouplvl">Grupo</label>
                 <select class="form-select" id="grouplvl" name="grouplvl" aria-label="Floating label select example" required>
                     <option value="<?= $user['grouplvl']; ?>" selected><?= $grouplvlDao->findById($user['grouplvl']) ?></option>
-                    <?php if ($user['grouplvl'] != 1) : ?><option value="1">Consulta</option> <?php endif; ?>
-                    <?php if ($user['grouplvl'] != 2) : ?><option value="2">Movimentação</option> <?php endif; ?>
-                    <?php if ($user['grouplvl'] != 3) : ?><option value="3">Cadastro</option> <?php endif; ?>
-                    <?php if ($user['grouplvl'] != 4) : ?><option value="4">Administrador</option> <?php endif; ?>
+
+                    <!-- somente usuários adm tem acesso para editar -->
+                    <?php if ($auth->accessView($loggedUser->getGrouplvl(), [4])) : ?>
+                        <?php if ($user['grouplvl'] != 1) : ?><option value="1">Consulta</option> <?php endif; ?>
+                        <?php if ($user['grouplvl'] != 2) : ?><option value="2">Movimentação</option> <?php endif; ?>
+                        <?php if ($user['grouplvl'] != 3) : ?><option value="3">Cadastro</option> <?php endif; ?>
+                        <?php if ($user['grouplvl'] != 4) : ?><option value="4">Administrador</option> <?php endif; ?>
+                    <?php endif; ?>
+
                 </select>
             </div>
 
